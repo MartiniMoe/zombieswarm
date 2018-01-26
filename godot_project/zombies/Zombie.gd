@@ -23,6 +23,19 @@ func _ready():
 func _physics_process(delta):
 	move_and_slide(dir*speed*delta)
 	
+	if abs(dir.x) > abs(dir.y):
+		if dir.x > 0:
+			$AnimatedSprite.play("walk_right")
+		else:
+			# egtl left
+			$AnimatedSprite.play("walk_right")
+	else:
+		if dir.y > 0:
+			# egtl down
+			$AnimatedSprite.play("walk_up")
+		else:
+			$AnimatedSprite.play("walk_up")
+	
 	var neighbours = area.get_overlapping_bodies()
 	
 	if not neighbours.empty():

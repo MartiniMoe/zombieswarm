@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/zombies.svg-428a81b581a8dd74ba9f3c35147f5195.stex"
+path="res://.import/zombie-up-6.png-4d294d6df17234b5e8bf27f1bf2bdeeb.stex"
 
 [deps]
 
-source_file="res://zombies/zombies.svg"
-source_md5="2f1fc19a69f852b8c140d383e09b2ff5"
+source_file="res://zombies/zombie-up-6.png"
+source_md5="d6f3ab29e18be7a31784657f70c98f22"
 
-dest_files=[ "res://.import/zombies.svg-428a81b581a8dd74ba9f3c35147f5195.stex" ]
-dest_md5="5d18a4bfd88c7904b46d0ca2c49c0946"
+dest_files=[ "res://.import/zombie-up-6.png-4d294d6df17234b5e8bf27f1bf2bdeeb.stex" ]
+dest_md5="7f164fdee6566efa2df012e01fd3e459"
 
 [params]
 
