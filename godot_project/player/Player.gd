@@ -5,12 +5,21 @@ const spr_up = preload("res://player/player-up.png")
 const spr_down = preload("res://player/player-down.png")
 const spr_left = preload("res://player/player-left.png")
 const spr_right = preload("res://player/player-right.png")
+const repeller = preload("res://repeller/Repeller.tscn")
 
 func _ready():
 	set_process_input(true)
 
 func _physics_process(delta):
+	set_z_index(get_global_position().y)
+	
 	var motion = Vector2()
+	
+	if Input.is_action_just_pressed("place_repeller"):
+		var rep = repeller.instance()
+		rep.set_global_position(get_global_position())
+		rep.set_z_index(get_global_position().y)
+		get_parent().add_child(rep)
 	
 	if Input.is_action_pressed("walk_up"):
 		$Sprite.texture = spr_up
