@@ -34,8 +34,6 @@ func _physics_process(delta):
 					$Sprite.texture = spr_left
 	else:
 		var distance = get_global_position().distance_to(movement_start + movement_relative)
-		print("distance: " + str(distance))
-		print("last_distance: " + str(last_distance))
 		if distance <= last_distance:
 			last_distance = distance
 			move_and_slide(movement_relative.normalized() * MOTION_SPEED)
