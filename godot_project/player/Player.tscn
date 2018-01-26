@@ -7,7 +7,7 @@
 
 custom_solver_bias = 0.0
 radius = 20.0
-height = 60.0
+height = 1.0
 
 [node name="Player" type="KinematicBody2D"]
 
@@ -24,7 +24,7 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 0, 6 )
+position = Vector2( -2, 37 )
 shape = SubResource( 1 )
 
 
