@@ -10,6 +10,7 @@ const spr_right = preload("res://pedestrian/pedestrian-right.png")
 var moving = false
 var movement_start
 var movement_relative
+var last_distance
 
 func _ready():
 	set_physics_process(true)
@@ -20,6 +21,7 @@ func _physics_process(delta):
 			moving = true
 			movement_relative = Vector2(randi()%MOVEMENT_RANGE-MOVEMENT_RANGE/2, randi()%MOVEMENT_RANGE-MOVEMENT_RANGE/2)
 			movement_start = get_global_position()
+			last_distance = get_global_position().distance_to(movement_start + movement_relative)
 			if abs(movement_relative.y) > abs(movement_relative.x):
 				if movement_relative.y > 0:
 					$Sprite.texture = spr_down
@@ -32,7 +34,10 @@ func _physics_process(delta):
 					$Sprite.texture = spr_left
 	else:
 		var distance = get_global_position().distance_to(movement_start + movement_relative)
-		if distance >= 2:
+		print("distance: " + str(distance))
+		print("last_distance: " + str(last_distance))
+		if distance <= last_distance:
+			last_distance = distance
 			move_and_slide(movement_relative.normalized() * MOTION_SPEED)
 		else:
 			moving = false
