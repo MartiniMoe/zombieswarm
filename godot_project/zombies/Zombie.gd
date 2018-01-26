@@ -16,6 +16,8 @@ var blind_angle = PI/4
 
 func _ready():
 	area = get_node("Neighbourarea")
+	$AnimatedSprite.set_frame(randi()%$AnimatedSprite.get_sprite_frames().get_frame_count("walk_right"))
+	$AnimatedSprite.play()
 
 	
 func _physics_process(delta):

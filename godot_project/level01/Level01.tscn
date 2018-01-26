@@ -16,7 +16,7 @@ extents = Vector2( 960, 20 )
 custom_solver_bias = 0.0
 extents = Vector2( 20, 540 )
 
-[node name="Level01" type="YSort" index="0"]
+[node name="Level01" type="YSort"]
 
 sort_enabled = true
 
