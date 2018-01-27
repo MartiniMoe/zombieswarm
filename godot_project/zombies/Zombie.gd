@@ -26,9 +26,10 @@ func _physics_process(delta):
 	if abs(dir.x) > abs(dir.y):
 		if dir.x > 0:
 			$AnimatedSprite.play("walk_right")
+			$AnimatedSprite.set_flip_h(false)
 		else:
-			# egtl left
 			$AnimatedSprite.play("walk_right")
+			$AnimatedSprite.set_flip_h(true)
 	else:
 		if dir.y > 0:
 			# egtl down

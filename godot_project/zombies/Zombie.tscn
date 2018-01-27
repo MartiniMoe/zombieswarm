@@ -39,7 +39,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Zombie" type="KinematicBody2D" index="0" groups=[
+[node name="Zombie" type="KinematicBody2D" groups=[
 "zombie",
 ]]
 

@@ -13,10 +13,11 @@ func _ready():
 func _physics_process(delta):
 	var motion = Vector2()
 	
-	if Input.is_action_just_pressed("place_repeller"):
+	if Input.is_action_just_pressed("place_repeller") and $RepellerCooldown.time_left == 0:
 		var rep = repeller.instance()
 		rep.set_global_position(get_global_position())
 		get_parent().add_child(rep)
+		$RepellerCooldown.start()
 	
 	if Input.is_action_pressed("walk_up"):
 		$Sprite.texture = spr_up
