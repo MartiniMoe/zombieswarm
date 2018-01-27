@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://level_shared/Gui.gd" type="Script" id=1]
 [ext_resource path="res://level_shared/label_bg.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://level_shared/defeat.png" type="Texture" id=12]
 [ext_resource path="res://level_shared/restart.png" type="Texture" id=13]
 [ext_resource path="res://level_shared/restart_hover.png" type="Texture" id=14]
+[ext_resource path="res://sounds/theme.wav" type="AudioStream" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -140,7 +141,7 @@ tracks/2/keys = {
 "values": [ Vector2( 1312, 96 ), Vector2( 1312, 96 ), Vector2( 1312, 96 ), Vector2( 1312, 96 ), Vector2( 1312, 96 ) ]
 }
 
-[node name="Gui" type="Control"]
+[node name="Gui" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -533,6 +534,14 @@ group = null
 texture_normal = ExtResource( 13 )
 texture_hover = ExtResource( 14 )
 _sections_unfolded = [ "Textures" ]
+
+[node name="ThemePlayer" type="AudioStreamPlayer" parent="." index="5"]
+
+stream = ExtResource( 15 )
+volume_db = -10.0
+autoplay = true
+mix_target = 0
+bus = "Master"
 
 [connection signal="pressed" from="Win/button_next_level" to="." method="_on_button_next_level_pressed"]
 
