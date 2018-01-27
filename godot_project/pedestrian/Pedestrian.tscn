@@ -9,7 +9,7 @@ custom_solver_bias = 0.0
 radius = 20.0
 height = 1.0
 
-[node name="Pedestrian" type="KinematicBody2D" groups=[
+[node name="Pedestrian" type="KinematicBody2D" index="0" groups=[
 "pedestrian",
 ]]
 
