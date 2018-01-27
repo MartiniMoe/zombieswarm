@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pedestrian.svg-a61d750896acea4257f7becf9f1780ef.stex"
+path="res://.import/pedestrian-up-5.png-5d204144c133a3e5ea6988882ac656c3.stex"
 
 [deps]
 
-source_file="res://pedestrian/pedestrian.svg"
-source_md5="e192b808c0d5de737b4abd973977112c"
+source_file="res://pedestrian/pedestrian-up-5.png"
+source_md5="19cd5cf1170d6e6a6abc68ffd213037f"
 
-dest_files=[ "res://.import/pedestrian.svg-a61d750896acea4257f7becf9f1780ef.stex" ]
-dest_md5="706dbe2b1c5bee686b01ea416eb179d4"
+dest_files=[ "res://.import/pedestrian-up-5.png-5d204144c133a3e5ea6988882ac656c3.stex" ]
+dest_md5="a8e4f53d93b52673ddf641d039df70a1"
 
 [params]
 

@@ -43,7 +43,7 @@ func _physics_process(delta):
 				if movement_relative.y > 0:
 					$AnimatedSprite.play("walk_down")
 				else:
-					$AnimatedSprite.play("walk_down")
+					$AnimatedSprite.play("walk_up")
 			else:
 				if movement_relative.x > 0:
 					$AnimatedSprite.set_flip_h(false)
