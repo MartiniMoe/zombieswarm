@@ -14,7 +14,7 @@ var repeller_factor = 0.2
 var obstacle_factor = 0.2
 var old_dir_factor = 0.3
 
-var ray_length = 500
+var ray_length = 100
 
 var repeller_radius = 400.0
 
@@ -73,13 +73,40 @@ func _physics_process(delta):
 	
 	var obstacle_dir = Vector2(0,0)
 	
-	var result = space_state.intersect_ray(self.global_position,self.global_position+ray_length*dir,[self],2)
+	var ray_dir1 = (Vector2(dir.y,-dir.x) + dir).normalized()
+	var ray_dir2 = dir
+	var ray_dir3 = (Vector2(-dir.y,dir.x) + dir).normalized()
 	
-	if not result.empty():
-		#obstacle_dir += result.position - self.global_position
-		obstacle_dir = result.normal
+	var result1 = space_state.intersect_ray(self.global_position,self.global_position+ray_length*ray_dir1,[self],2)
+	
+	if not result1.empty():
+		var dis = result1.position.distance_to(self.global_position)
+		if dis != 0:
+			obstacle_dir += result1.normal / dis
+		else:
+			obstacle_dir += result1.normal
 		
-	#obstacle_dir = -obstacle_dir.normalized()
+		
+	var result2 = space_state.intersect_ray(self.global_position,self.global_position+ray_length*ray_dir2,[self],2)
+	
+	if not result2.empty():
+		var dis = result2.position.distance_to(self.global_position)
+		if dis!= 0:
+			obstacle_dir += result2.normal / dis
+		else:
+			obstacle_dir += result2.normal
+		
+	var result3 = space_state.intersect_ray(self.global_position,self.global_position+ray_length*ray_dir3,[self],2)
+		
+	if not result3.empty():
+		var dis = result3.position.distance_to(self.global_position)
+		
+		if dis!=0:
+			obstacle_dir += result3.normal / dis
+		else:
+			obstacle_dir += result3.normal
+		
+	obstacle_dir = obstacle_dir.normalized()
 	
 	var neighbours = area.get_overlapping_bodies()
 	
@@ -98,7 +125,10 @@ func _physics_process(delta):
 					dir_sum+=neighbour.dir
 					pos_sum+=neighbour.position
 					num_neighbours+=1
-					sep_sum+=to_neighbour * 1/(to_neighbour.length_squared())
+					if to_neighbour.length_squared() !=0:
+						sep_sum+=to_neighbour * 1/(to_neighbour.length_squared())
+					else:
+						sep_sum+=to_neighbour
 				
 		var avg_dir = dir_sum.normalized()
 		var sep_avg = -sep_sum.normalized()
@@ -118,7 +148,7 @@ func _physics_process(delta):
 		dir += obstacle_factor * obstacle_dir
 		dir = dir.normalized()
 		
-		#debug_vector1 = obstacle_dir
+		debug_vector1 = obstacle_dir
 		debug_vector2 = dir_to_avg_pos
 		debug_vector3 = sep_avg
-		debug_vector1 = repeller_dir
+		#debug_vector1 = repeller_dir
