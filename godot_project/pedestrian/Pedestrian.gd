@@ -7,10 +7,17 @@ const spr_down = preload("res://pedestrian/pedestrian-down.png")
 const spr_left = preload("res://pedestrian/pedestrian-left.png")
 const spr_right = preload("res://pedestrian/pedestrian-right.png")
 
+var life = 100.0
+
 var moving = false
 var movement_start
 var movement_relative
 var last_distance
+
+func get_damaged(var damage):
+	if life > 0:
+		life-=damage
+	print(life)
 
 func _ready():
 	set_physics_process(true)

@@ -22,6 +22,8 @@ var repeller_radius = 400.0
 
 var blind_angle = PI/4
 
+var pedestrian_damage = 5
+
 var debug_vector1 = Vector2(0,0)
 var debug_vector2 = Vector2(0,0)
 var debug_vector3 = Vector2(0,0)
@@ -47,6 +49,13 @@ func _process(delta):
 	
 func _physics_process(delta):
 	move_and_slide(dir*speed*delta)
+	
+	for i in range(get_slide_count()-1):
+		var collider = get_slide_collision(i).collider
+		if collider.is_in_group("pedestrian"):
+			var pedestrian = collider
+			
+			pedestrian.get_damaged(pedestrian_damage)
 	
 	if abs(dir.x) > abs(dir.y):
 		if dir.x > 0:
