@@ -27,7 +27,6 @@ func get_damaged(var damage):
 		remove_from_group("pedestrian")
 		$ResurrectTimer.start()
 		$CollisionShape2D.set_disabled(true)
-	print(life)
 
 func _ready():
 	set_physics_process(true)
