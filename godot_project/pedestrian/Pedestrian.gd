@@ -6,6 +6,7 @@ const spr_up = preload("res://pedestrian/pedestrian-up.png")
 const spr_down = preload("res://pedestrian/pedestrian-down.png")
 const spr_left = preload("res://pedestrian/pedestrian-left.png")
 const spr_right = preload("res://pedestrian/pedestrian-right.png")
+const zombie = preload("res://zombies/Zombie.tscn")
 
 var life = 100.0
 
@@ -15,8 +16,15 @@ var movement_relative
 var last_distance
 
 func get_damaged(var damage):
+	$Particles2D.set_emitting(true)
 	if life > 0:
 		life-=damage
+	else:
+		set_physics_process(false)
+		$Sprite.set_rotation_degrees(90)
+		remove_from_group("pedestrian")
+		$ResurrectTimer.start()
+		$CollisionShape2D.set_disabled(true)
 	print(life)
 
 func _ready():
@@ -46,3 +54,9 @@ func _physics_process(delta):
 			move_and_slide(movement_relative.normalized() * MOTION_SPEED)
 		else:
 			moving = false
+
+func _on_ResurrectTimer_timeout():
+	var z = zombie.instance()
+	z.set_global_position(get_global_position())
+	get_parent().add_child(z)
+	queue_free()

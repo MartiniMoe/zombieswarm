@@ -89,8 +89,8 @@ func _physics_process(delta):
 	for far_neighbour in far_neighbours:
 		if far_neighbour.is_in_group("pedestrian"):
 			var pedestrian = far_neighbour
-			
-			pedestrian_dir += pedestrian.position - self.position
+			if pedestrian.life != 0:
+				pedestrian_dir += pedestrian.position - self.position
 			
 	pedestrian_dir = pedestrian_dir.normalized()
 		
