@@ -20,7 +20,10 @@ var cohesion_factor = 0.1
 var repeller_factor = 0.2
 var obstacle_factor = 0.2
 var pedestrian_factor = 0.1
+var random_factor = 0.02
 var old_dir_factor = 0.3
+
+var random_spread = 2*PI
 
 var ray_length = 100
 
@@ -29,6 +32,7 @@ var repeller_radius = 400.0
 var blind_angle = PI/4
 
 var pedestrian_damage = 5
+var player_damage = 5
 
 var ray1_factor = 1.5
 var ray2_factor = 0.5
@@ -90,6 +94,10 @@ func _physics_process(delta):
 			var pedestrian = collider
 			
 			pedestrian.get_damaged(pedestrian_damage)
+		if collider.is_in_group("player"):
+			var player = collider
+			
+			player.get_damaged(player_damage)
 	
 	if abs(dir.x) > abs(dir.y):
 		if dir.x > 0:
@@ -197,6 +205,9 @@ func _physics_process(delta):
 		
 		var dir_to_avg_pos = (avg_pos - self.position).normalized()
 		
+		var random_angle = dir.angle() + (randf()-0.5)*random_spread
+		var random_dir = Vector2(cos(random_angle),sin(random_angle))
+		
 		dir = old_dir_factor * dir
 		dir += alignment_factor * avg_dir
 		dir += cohesion_factor * dir_to_avg_pos
@@ -204,6 +215,7 @@ func _physics_process(delta):
 		dir += repeller_factor * repeller_dir
 		dir += obstacle_factor * obstacle_dir
 		dir += pedestrian_factor * pedestrian_dir
+		dir += random_factor * random_dir
 		dir = dir.normalized()
 		
 		debug_vector1 = obstacle_dir
