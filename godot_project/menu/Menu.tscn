@@ -1,46 +1,117 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://menu/Menu.gd" type="Script" id=1]
+[ext_resource path="res://menu/logo.png" type="Texture" id=2]
+[ext_resource path="res://menu/start.png" type="Texture" id=3]
+[ext_resource path="res://menu/start_clicked.png" type="Texture" id=4]
+[ext_resource path="res://menu/start_hover.png" type="Texture" id=5]
+[ext_resource path="res://menu/exit.png" type="Texture" id=6]
+[ext_resource path="res://menu/exit_clicked.png" type="Texture" id=7]
+[ext_resource path="res://menu/exit_hover.png" type="Texture" id=8]
+[ext_resource path="res://menu/Kenney Bold.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://menu/picture.png" type="Texture" id=10]
 
-[node name="Menu" type="Control"]
+[sub_resource type="DynamicFont" id=1]
+
+size = 12
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 9 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="Menu" type="MarginContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_constants/margin_right = 120
+custom_constants/margin_top = 80
+custom_constants/margin_left = 120
+custom_constants/margin_bottom = 80
 script = ExtResource( 1 )
+_sections_unfolded = [ "custom_constants" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." index="0"]
+[node name="HBoxContainer" type="HBoxContainer" parent="." index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 384.0
-margin_right = 1536.0
-margin_bottom = 1080.0
+margin_left = 120.0
+margin_top = 80.0
+margin_right = 1800.0
+margin_bottom = 1000.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 1
-_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
-[node name="Start" type="Button" parent="VBoxContainer" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 530.0
-margin_right = 1152.0
-margin_bottom = 550.0
+margin_left = 268.0
+margin_right = 908.0
+margin_bottom = 920.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Logo" type="TextureRect" parent="HBoxContainer/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 640.0
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 0
+
+[node name="MenuOptions" type="VBoxContainer" parent="HBoxContainer/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 154.0
+margin_right = 640.0
+margin_bottom = 856.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+alignment = 1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="StartButton" type="TextureButton" parent="HBoxContainer/VBoxContainer/MenuOptions" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 199.0
+margin_right = 640.0
+margin_bottom = 349.0
 rect_pivot_offset = Vector2( 0, 0 )
 focus_mode = 2
 mouse_filter = 0
@@ -51,11 +122,93 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Start"
-flat = false
-align = 1
-_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Size Flags", "Theme", "custom_fonts", "custom_styles" ]
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+_sections_unfolded = [ "Textures" ]
 
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[node name="ExitButton" type="TextureButton" parent="HBoxContainer/VBoxContainer/MenuOptions" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 353.0
+margin_right = 640.0
+margin_bottom = 503.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 8 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 860.0
+margin_right = 640.0
+margin_bottom = 920.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "ver 0.1
+Global Game Jam '18
+MartiniMoe, NinjaKoala, nomis"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 912.0
+margin_right = 1412.0
+margin_bottom = 920.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+
+[node name="Picture" type="TextureRect" parent="HBoxContainer/CenterContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 210.0
+margin_right = 500.0
+margin_bottom = 710.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 10 )
+stretch_mode = 0
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/MenuOptions/StartButton" to="." method="_on_StartButton_pressed"]
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/MenuOptions/ExitButton" to="." method="_on_ExitButton_pressed"]
 
 
