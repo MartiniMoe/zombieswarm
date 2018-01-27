@@ -7,10 +7,10 @@ path="res://.import/zombies.svg-428a81b581a8dd74ba9f3c35147f5195.stex"
 [deps]
 
 source_file="res://zombies/zombies.svg"
-source_md5="2f1fc19a69f852b8c140d383e09b2ff5"
+source_md5="bb415b92dca0bf7702d4797f00f2f8ab"
 
 dest_files=[ "res://.import/zombies.svg-428a81b581a8dd74ba9f3c35147f5195.stex" ]
-dest_md5="5d18a4bfd88c7904b46d0ca2c49c0946"
+dest_md5="12412791d34e694306fa33e4df82c2fa"
 
 [params]
 

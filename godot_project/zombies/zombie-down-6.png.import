@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/picture.png-14e84719ae534123fab0fcbd2d0cdbe4.stex"
+path="res://.import/zombie-down-6.png-87c7d10613f7ff9567607b579d437fdf.stex"
 
 [deps]
 
-source_file="res://menu/picture.png"
-source_md5="359925ef8ae467aa3b53ce6f84a387a1"
+source_file="res://zombies/zombie-down-6.png"
+source_md5="eb71cb5d98336ca763d896f8d286308a"
 
-dest_files=[ "res://.import/picture.png-14e84719ae534123fab0fcbd2d0cdbe4.stex" ]
-dest_md5="885108faceee0767f22a52a0602f8864"
+dest_files=[ "res://.import/zombie-down-6.png-87c7d10613f7ff9567607b579d437fdf.stex" ]
+dest_md5="7189a518820ee7105c6643422be47d60"
 
 [params]
 
