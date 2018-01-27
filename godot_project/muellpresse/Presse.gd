@@ -15,7 +15,7 @@ func _physics_process(delta):
 func stomp():
 	$AnimatedSprite.play("close")
 	$CollisionDoor.set_disabled(false)
-	
+	get_parent().get_node("Switch/Sprite").set_flip_h(true)
 
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.get_animation() == "close":
@@ -29,3 +29,4 @@ func _on_AnimatedSprite_animation_finished():
 		$AnimatedSprite.play("open")
 	elif $AnimatedSprite.get_animation() == "open":
 		$CollisionDoor.set_disabled(true)
+		get_parent().get_node("Switch/Sprite").set_flip_h(false)

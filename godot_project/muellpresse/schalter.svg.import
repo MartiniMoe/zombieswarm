@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/player.svg-8350115f1499abc037a8b0289c311380.stex"
+path="res://.import/schalter.svg-32135b0a82703c56ac5d435f88abe615.stex"
 
 [deps]
 
-source_file="res://player/player.svg"
-source_md5="3f99b1d885bd990d30e6c9551cfe87f9"
+source_file="res://muellpresse/schalter.svg"
+source_md5="7768ffbcefa25303d2de8a3a1a9de186"
 
-dest_files=[ "res://.import/player.svg-8350115f1499abc037a8b0289c311380.stex" ]
-dest_md5="fbfe3b3f929ef9c41d458f5da019af2f"
+dest_files=[ "res://.import/schalter.svg-32135b0a82703c56ac5d435f88abe615.stex" ]
+dest_md5="37e98750251326ebb0be5f589d3d6538"
 
 [params]
 
