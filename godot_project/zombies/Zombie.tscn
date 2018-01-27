@@ -93,6 +93,7 @@ shape = SubResource( 2 )
 
 frames = SubResource( 3 )
 animation = "walk_right"
+_sections_unfolded = [ "Z Index" ]
 
 [node name="Biggerarea" type="Area2D" parent="." index="3"]
 

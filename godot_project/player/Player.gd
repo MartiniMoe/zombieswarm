@@ -23,21 +23,23 @@ func _physics_process(delta):
 			get_parent().add_child(rep)
 			$RepellerCooldown.start()
 	
+	var animation = "walk_right"
 	if Input.is_action_pressed("walk_up"):
-		$AnimatedSprite.set_animation("walk_up")
+		animation = "walk_up"
 		motion += Vector2(0, -1)
 	if Input.is_action_pressed("walk_down"):
-		$AnimatedSprite.set_animation("walk_down")
+		animation = "walk_down"
 		motion += Vector2(0, 1)
 	if Input.is_action_pressed("walk_left"):
-		$AnimatedSprite.set_animation("walk_right")
+		animation = "walk_right"
 		$AnimatedSprite.set_flip_h(true)
 		motion += Vector2(-1, 0)
 	if Input.is_action_pressed("walk_right"):
-		$AnimatedSprite.set_animation("walk_right")
+		animation = "walk_right"
 		$AnimatedSprite.set_flip_h(false)
 		motion += Vector2(1, 0)
 	
+	$AnimatedSprite.set_animation(animation)
 	motion = motion.normalized() * MOTION_SPEED
 	
 	if motion != Vector2(0, 0):

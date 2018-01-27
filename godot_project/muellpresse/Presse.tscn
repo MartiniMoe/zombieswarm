@@ -126,8 +126,11 @@ _sections_unfolded = [ "Z Index" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
+position = Vector2( 0.393188, 51.7091 )
 frames = SubResource( 1 )
 animation = "close"
+offset = Vector2( -0.393188, -51.7091 )
+_sections_unfolded = [ "Z Index" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
