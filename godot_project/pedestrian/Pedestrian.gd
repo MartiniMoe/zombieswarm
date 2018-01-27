@@ -21,7 +21,9 @@ func get_damaged(var damage):
 		life-=damage
 	else:
 		set_physics_process(false)
-		$Sprite.set_rotation_degrees(90)
+		$AnimatedSprite.stop()
+		$AnimatedSprite.hide()
+		$Sprite.show()
 		remove_from_group("pedestrian")
 		$ResurrectTimer.start()
 		$CollisionShape2D.set_disabled(true)
@@ -32,6 +34,7 @@ func _ready():
 
 func _physics_process(delta):
 	if not moving:
+		$AnimatedSprite.stop()
 		if randi()%200 == 0:
 			moving = true
 			movement_relative = Vector2(randi()%MOVEMENT_RANGE-MOVEMENT_RANGE/2, randi()%MOVEMENT_RANGE-MOVEMENT_RANGE/2)
@@ -39,14 +42,16 @@ func _physics_process(delta):
 			last_distance = get_global_position().distance_to(movement_start + movement_relative)
 			if abs(movement_relative.y) > abs(movement_relative.x):
 				if movement_relative.y > 0:
-					$Sprite.texture = spr_down
+					$AnimatedSprite.play("walk_down")
 				else:
-					$Sprite.texture = spr_up
+					$AnimatedSprite.play("walk_down")
 			else:
 				if movement_relative.x > 0:
-					$Sprite.texture = spr_right
+					$AnimatedSprite.set_flip_h(false)
+					$AnimatedSprite.play("walk_right")
 				else:
-					$Sprite.texture = spr_left
+					$AnimatedSprite.set_flip_h(true)
+					$AnimatedSprite.play("walk_right")
 	else:
 		var distance = get_global_position().distance_to(movement_start + movement_relative)
 		if distance <= last_distance:
