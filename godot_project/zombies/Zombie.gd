@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 var area
+var big_area
 var space_state
 #var dir = Vector2(1,0)
 var angle = randf()*2
@@ -12,6 +13,7 @@ var separation_factor = 0.1
 var cohesion_factor = 0.1
 var repeller_factor = 0.2
 var obstacle_factor = 0.2
+var pedestrian_factor = 0.1
 var old_dir_factor = 0.3
 
 var ray_length = 100
@@ -34,6 +36,7 @@ func _draw():
 
 func _ready():
 	area = get_node("Neighbourarea")
+	big_area = get_node("Biggerarea")
 	space_state = get_world_2d().get_direct_space_state()
 	$AnimatedSprite.set_frame(randi()%$AnimatedSprite.get_sprite_frames().get_frame_count("walk_right"))
 	$AnimatedSprite.play()
@@ -56,21 +59,31 @@ func _physics_process(delta):
 			$AnimatedSprite.play("walk_down")
 		else:
 			$AnimatedSprite.play("walk_up")
-
-	var repellers =  get_tree().get_nodes_in_group("repeller")
+	
+	var repellers = get_tree().get_nodes_in_group("repeller")
 	
 	var repeller_dir = Vector2(0,0)
-	var num_repeller = 0
 	
 	for repeller in repellers:
-		
 		var to_repeller = repeller.position - self.position
 		
 		if to_repeller.length() < repeller_radius:
 			repeller_dir += to_repeller
-		
+			
 	repeller_dir = -repeller_dir.normalized()
 	
+	var far_neighbours = big_area.get_overlapping_bodies()
+	
+	var pedestrian_dir = Vector2(0,0)
+	
+	for far_neighbour in far_neighbours:
+		if far_neighbour.is_in_group("pedestrian"):
+			var pedestrian = far_neighbour
+			
+			pedestrian_dir += pedestrian.position - self.position
+			
+	pedestrian_dir = pedestrian_dir.normalized()
+		
 	var obstacle_dir = Vector2(0,0)
 	
 	var ray_dir1 = (Vector2(dir.y,-dir.x) + dir).normalized()
@@ -146,6 +159,7 @@ func _physics_process(delta):
 		dir += separation_factor * sep_avg
 		dir += repeller_factor * repeller_dir
 		dir += obstacle_factor * obstacle_dir
+		dir += pedestrian_factor * pedestrian_dir
 		dir = dir.normalized()
 		
 		debug_vector1 = obstacle_dir
