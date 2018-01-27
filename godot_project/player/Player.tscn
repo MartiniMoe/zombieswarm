@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
-[ext_resource path="res://player/player-down.png" type="Texture" id=2]
+[ext_resource path="res://player/player-right-1.png" type="Texture" id=2]
+[ext_resource path="res://player/player-right-2.png" type="Texture" id=3]
+[ext_resource path="res://player/player-right-3.png" type="Texture" id=4]
+[ext_resource path="res://player/player-right-4.png" type="Texture" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -9,7 +12,16 @@ custom_solver_bias = 0.0
 radius = 20.0
 height = 1.0
 
-[node name="Player" type="KinematicBody2D"]
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "walk_right",
+"speed": 8.0
+} ]
+
+[node name="Player" type="KinematicBody2D" index="0"]
 
 scale = Vector2( 0.5, 0.5 )
 input_pickable = false
@@ -19,20 +31,21 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
-
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
 position = Vector2( -2, 37 )
 shape = SubResource( 1 )
 
-[node name="RepellerCooldown" type="Timer" parent="." index="2"]
+[node name="RepellerCooldown" type="Timer" parent="." index="1"]
 
 process_mode = 1
 wait_time = 10.0
 one_shot = true
 autostart = false
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="2"]
+
+frames = SubResource( 2 )
+animation = "walk_right"
 
 

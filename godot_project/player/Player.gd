@@ -20,18 +20,25 @@ func _physics_process(delta):
 		$RepellerCooldown.start()
 	
 	if Input.is_action_pressed("walk_up"):
-		$Sprite.texture = spr_up
+		$AnimatedSprite.set_animation("walk_right")
 		motion += Vector2(0, -1)
 	if Input.is_action_pressed("walk_down"):
-		$Sprite.texture = spr_down
+		$AnimatedSprite.set_animation("walk_right")
 		motion += Vector2(0, 1)
 	if Input.is_action_pressed("walk_left"):
-		$Sprite.texture = spr_left
+		$AnimatedSprite.set_animation("walk_right")
+		$AnimatedSprite.set_flip_h(true)
 		motion += Vector2(-1, 0)
 	if Input.is_action_pressed("walk_right"):
-		$Sprite.texture = spr_right
+		$AnimatedSprite.set_animation("walk_right")
+		$AnimatedSprite.set_flip_h(false)
 		motion += Vector2(1, 0)
 	
 	motion = motion.normalized() * MOTION_SPEED
-
+	
+	if motion != Vector2(0, 0):
+		$AnimatedSprite.play()
+	else:
+		$AnimatedSprite.stop()
+	
 	move_and_slide(motion)
