@@ -23,7 +23,7 @@ func _physics_process(delta):
 		$AnimatedSprite.set_animation("walk_right")
 		motion += Vector2(0, -1)
 	if Input.is_action_pressed("walk_down"):
-		$AnimatedSprite.set_animation("walk_right")
+		$AnimatedSprite.set_animation("walk_down")
 		motion += Vector2(0, 1)
 	if Input.is_action_pressed("walk_left"):
 		$AnimatedSprite.set_animation("walk_right")

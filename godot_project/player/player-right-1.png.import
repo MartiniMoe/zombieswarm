@@ -7,10 +7,10 @@ path="res://.import/player-right-1.png-efb485526501ee1e57fb56ce603bb119.stex"
 [deps]
 
 source_file="res://player/player-right-1.png"
-source_md5="80c5450394d6af4008dc8af999ce2733"
+source_md5="9b15c974081b2337c7060d0224f121c3"
 
 dest_files=[ "res://.import/player-right-1.png-efb485526501ee1e57fb56ce603bb119.stex" ]
-dest_md5="306b218b9b5e0e7bc6e752749d90e8be"
+dest_md5="677420402a5c2d780d024b3e767efb7f"
 
 [params]
 

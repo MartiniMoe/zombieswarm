@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 960, 20 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 20, 540 )
+
+[node name="LevelBoundaries" type="StaticBody2D"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 3
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( 960, 0 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 960, 1080 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." index="2"]
+
+position = Vector2( 0, 540 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." index="3"]
+
+position = Vector2( 1920, 540 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+
