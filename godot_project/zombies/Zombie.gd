@@ -28,8 +28,9 @@ var debug_vector3 = Vector2(0,0)
 var debug_vector4 = Vector2(0,0)
 
 func _draw():
+	pass
 	#draw_line(Vector2(0,0), 100*dir, Color(1,0,0),1,true)
-	draw_line(Vector2(0,0), 100*debug_vector1, Color(0,1,0),1,true)
+	#draw_line(Vector2(0,0), 100*debug_vector1, Color(0,1,0),1,true)
 	#draw_line(Vector2(0,0), 100*debug_vector2, Color(0,0,1),1,true)
 	#draw_line(Vector2(0,0), 100*debug_vector3, Color(1,1,0),1,true)
 	#draw_line(Vector2(0,0), 100*debug_vector4, Color(0,1,1),1,true)
