@@ -2,13 +2,14 @@ extends Control
 
 onready var cooldown_timer = get_parent().get_node("YSort/Player/RepellerCooldown")
 var last_progress = 100
+var level = 1
 
 func _ready():
 	set_physics_process(true)
 	$PedestrianCount.set_position(Vector2(10, 20))
 	$ZombieCount.set_position(Vector2(10, 80))
 
-func _physics_process(delta):
+func _physics_process(delta):	
 	var count_pedestrian = 0
 	var count_zombie = 0
 	for node in get_parent().get_node("YSort").get_children():
@@ -27,3 +28,9 @@ func _physics_process(delta):
 		$RepellerTimer/AnimationPlayer.play("flash")
 	
 	last_progress = progress
+	
+	if count_zombie == 0:
+		$Win.show()
+
+func _on_TextureButton_pressed():
+	get_tree().change_scene("res://level0" + str(level+1) + "/Level0" + str(level+1) + ".tscn")

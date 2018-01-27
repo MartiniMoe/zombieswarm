@@ -86,7 +86,7 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[node name="Pedestrian" type="KinematicBody2D" index="0" groups=[
+[node name="Pedestrian" type="KinematicBody2D" groups=[
 "pedestrian",
 ]]
 
