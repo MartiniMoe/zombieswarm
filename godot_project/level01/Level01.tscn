@@ -59,7 +59,6 @@ _sections_unfolded = [ "Transform" ]
 [node name="Player" parent="." index="1" instance=ExtResource( 1 )]
 
 position = Vector2( 742.01, 457.48 )
-_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Pedestrian" parent="." index="2" instance=ExtResource( 2 )]
 
@@ -116,5 +115,25 @@ position = Vector2( 864.239, 718.04 )
 [node name="Zombie6" parent="." index="15" instance=ExtResource( 5 )]
 
 position = Vector2( 877.193, 906.803 )
+
+[node name="Zombie7" parent="." index="16" instance=ExtResource( 5 )]
+
+position = Vector2( 674.978, 786.383 )
+
+[node name="Zombie8" parent="." index="17" instance=ExtResource( 5 )]
+
+position = Vector2( 772.678, 650.059 )
+
+[node name="Zombie9" parent="." index="18" instance=ExtResource( 5 )]
+
+position = Vector2( 849.928, 577.352 )
+
+[node name="Zombie10" parent="." index="19" instance=ExtResource( 5 )]
+
+position = Vector2( 1095.31, 475.109 )
+
+[node name="Zombie11" parent="." index="20" instance=ExtResource( 5 )]
+
+position = Vector2( 1315.7, 550.087 )
 
 
