@@ -9,16 +9,33 @@ var speed = 5000
 var alignment_factor = 0.3
 var separation_factor = 0.2
 var cohesion_factor = 0.18
+var repeller_factor = 0.5
+
+var repeller_radius = 400.0
 
 var num_neighbours = 0
 
 var blind_angle = PI/4
 
+var debug_vector1 = Vector2(0,0)
+var debug_vector2 = Vector2(0,0)
+var debug_vector3 = Vector2(0,0)
+var debug_vector4 = Vector2(0,0)
+
+func _draw():
+	draw_line(Vector2(0,0), 100*dir, Color(1,0,0),1,true)
+	#draw_line(Vector2(0,0), 100*debug_vector1, Color(0,1,0),1,true)
+	#draw_line(Vector2(0,0), 100*debug_vector2, Color(0,0,1),1,true)
+	#draw_line(Vector2(0,0), 100*debug_vector3, Color(1,1,0),1,true)
+	#draw_line(Vector2(0,0), 100*debug_vector4, Color(0,1,1),1,true)
+
 func _ready():
 	area = get_node("Neighbourarea")
 	$AnimatedSprite.set_frame(randi()%$AnimatedSprite.get_sprite_frames().get_frame_count("walk_right"))
 	$AnimatedSprite.play()
-
+	
+func _process(delta):
+	update()
 	
 func _physics_process(delta):
 	move_and_slide(dir*speed*delta)
@@ -36,6 +53,20 @@ func _physics_process(delta):
 			$AnimatedSprite.play("walk_up")
 		else:
 			$AnimatedSprite.play("walk_up")
+
+	var repellers =  get_tree().get_nodes_in_group("repeller")
+	
+	var repeller_dir = Vector2(0,0)
+	var num_repeller = 0
+	
+	for repeller in repellers:
+		
+		var to_repeller = repeller.position - self.position
+		
+		if to_repeller.length() < repeller_radius:
+			repeller_dir += to_repeller
+		
+	repeller_dir = -repeller_dir.normalized()
 	
 	var neighbours = area.get_overlapping_bodies()
 	
@@ -66,8 +97,14 @@ func _physics_process(delta):
 		
 		var dir_to_avg_pos = (avg_pos - self.position).normalized()
 		
-		dir = (1 - alignment_factor - cohesion_factor - separation_factor) * dir
+		dir = (1 - alignment_factor - cohesion_factor - separation_factor - repeller_factor) * dir
 		dir += alignment_factor * avg_dir
 		dir += cohesion_factor * dir_to_avg_pos
 		dir += separation_factor * sep_avg
+		dir += repeller_factor * repeller_dir
 		dir = dir.normalized()
+		
+		debug_vector1 = avg_dir
+		debug_vector2 = dir_to_avg_pos
+		debug_vector3 = sep_avg
+		debug_vector4 = repeller_dir
