@@ -24,6 +24,10 @@ var blind_angle = PI/4
 
 var pedestrian_damage = 5
 
+var ray1_factor = 1.5
+var ray2_factor = 0.5
+var ray3_factor = 1.0
+
 var debug_vector1 = Vector2(0,0)
 var debug_vector2 = Vector2(0,0)
 var debug_vector3 = Vector2(0,0)
@@ -105,9 +109,9 @@ func _physics_process(delta):
 	if not result1.empty():
 		var dis = result1.position.distance_to(self.global_position)
 		if dis != 0:
-			obstacle_dir += result1.normal / dis
+			obstacle_dir += ray1_factor * result1.normal / dis
 		else:
-			obstacle_dir += result1.normal
+			obstacle_dir += ray1_factor * result1.normal
 		
 		
 	var result2 = space_state.intersect_ray(self.global_position,self.global_position+ray_length*ray_dir2,[self],2)
@@ -115,9 +119,9 @@ func _physics_process(delta):
 	if not result2.empty():
 		var dis = result2.position.distance_to(self.global_position)
 		if dis!= 0:
-			obstacle_dir += result2.normal / dis
+			obstacle_dir += ray2_factor * result2.normal / dis
 		else:
-			obstacle_dir += result2.normal
+			obstacle_dir += ray2_factor * result2.normal
 		
 	var result3 = space_state.intersect_ray(self.global_position,self.global_position+ray_length*ray_dir3,[self],2)
 		
@@ -125,9 +129,9 @@ func _physics_process(delta):
 		var dis = result3.position.distance_to(self.global_position)
 		
 		if dis!=0:
-			obstacle_dir += result3.normal / dis
+			obstacle_dir += ray3_factor * result3.normal / dis
 		else:
-			obstacle_dir += result3.normal
+			obstacle_dir += ray3_factor * result3.normal
 		
 	obstacle_dir = obstacle_dir.normalized()
 	
