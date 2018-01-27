@@ -31,6 +31,12 @@ func _physics_process(delta):
 	
 	if count_zombie == 0:
 		$Win.show()
+	elif count_pedestrian == 0:
+		$Defeat.show()
+		#$Defeat/AnimationPlayer.play("defeat")
 
-func _on_TextureButton_pressed():
+func _on_button_next_level_pressed():
 	get_tree().change_scene("res://level0" + str(level+1) + "/Level0" + str(level+1) + ".tscn")
+
+func _on_button_restart_pressed():
+	get_tree().change_scene("res://level0" + str(level) + "/Level0" + str(level) + ".tscn")
