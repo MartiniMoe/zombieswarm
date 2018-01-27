@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/zombie02.wav-11ab793e77b1c60a17236e74c5430aad.sample"
+
+[deps]
+
+source_file="res://sounds/zombie02.wav"
+source_md5="174c53f49078e47d125ed899b9bad98a"
+
+dest_files=[ "res://.import/zombie02.wav-11ab793e77b1c60a17236e74c5430aad.sample" ]
+dest_md5="b0d338fcb34da8b250244619645bd4ff"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

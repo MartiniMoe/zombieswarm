@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/pedestrian02.wav-2ea35eb955ae56f122a5c52c14fa981a.sample"
+
+[deps]
+
+source_file="res://sounds/pedestrian02.wav"
+source_md5="8979279560b9670266384cdb734b9440"
+
+dest_files=[ "res://.import/pedestrian02.wav-2ea35eb955ae56f122a5c52c14fa981a.sample" ]
+dest_md5="2db23ccb6c866c2856764d40b4085eae"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

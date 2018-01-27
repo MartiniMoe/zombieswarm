@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/zombie04-old1.wav-7f9319c0d0177ecaeea5bee3f6abebf8.sample"
+
+[deps]
+
+source_file="res://sounds/zombie04-old1.wav"
+source_md5="0252e0831809fffa81970dba203ce92b"
+
+dest_files=[ "res://.import/zombie04-old1.wav-7f9319c0d0177ecaeea5bee3f6abebf8.sample" ]
+dest_md5="1ef852e5fe79650a593e5facb330f706"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

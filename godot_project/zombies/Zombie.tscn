@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://zombies/Zombie.gd" type="Script" id=1]
 [ext_resource path="res://zombies/zombie-right-1.png" type="Texture" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://zombies/zombie-down-6.png" type="Texture" id=19]
 [ext_resource path="res://zombies/zombie-down-7.png" type="Texture" id=20]
 [ext_resource path="res://zombies/zombie-down-8.png" type="Texture" id=21]
+[ext_resource path="res://sounds/zombie01.wav" type="AudioStream" id=22]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -57,7 +58,7 @@ animations = [ {
 custom_solver_bias = 0.0
 radius = 400.0
 
-[node name="Zombie" type="KinematicBody2D" groups=[
+[node name="Zombie" type="KinematicBody2D" index="0" groups=[
 "zombie",
 ]]
 
@@ -109,5 +110,24 @@ audio_bus_name = "Master"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Biggerarea" index="0"]
 
 shape = SubResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="." index="4"]
+
+stream = ExtResource( 22 )
+volume_db = -10.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="SoundTimer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = false
+autostart = true
+
+[connection signal="timeout" from="SoundTimer" to="." method="_on_SoundTimer_timeout"]
 
 

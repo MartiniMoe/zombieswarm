@@ -8,6 +8,16 @@ const spr_left = preload("res://pedestrian/pedestrian-left.png")
 const spr_right = preload("res://pedestrian/pedestrian-right.png")
 const zombie = preload("res://zombies/Zombie.tscn")
 
+const PS1 = preload("res://sounds/pedestrian01.wav")
+const PS2 = preload("res://sounds/pedestrian02.wav")
+const PS3 = preload("res://sounds/pedestrian03.wav")
+const PS4 = preload("res://sounds/pedestrian04.wav")
+const PS5 = preload("res://sounds/pedestrian05.wav")
+const PS6 = preload("res://sounds/pedestrian06.wav")
+const PS7 = preload("res://sounds/pedestrian07.wav")
+
+var pedestrian_sounds = []
+
 var life = 100.0
 
 var moving = false
@@ -17,6 +27,12 @@ var last_distance
 
 func get_damaged(var damage):
 	$Particles2D.set_emitting(true)
+	
+	if !$AudioStreamPlayer2D.is_playing():
+		$AudioStreamPlayer2D.set_stream(pedestrian_sounds[randi()%pedestrian_sounds.size()])
+		$AudioStreamPlayer2D.get_stream().get_audio_stream().set_loop_mode(AudioStreamSample.LOOP_DISABLED)
+		$AudioStreamPlayer2D.play()
+	
 	if life > 0:
 		life-=damage
 	else:
@@ -30,6 +46,37 @@ func get_damaged(var damage):
 
 func _ready():
 	set_physics_process(true)
+	
+	var rp1 = AudioStreamRandomPitch.new()
+	rp1.set_audio_stream(PS1)
+	var rp2 = AudioStreamRandomPitch.new()
+	rp2.set_audio_stream(PS2)
+	var rp3 = AudioStreamRandomPitch.new()
+	rp3.set_audio_stream(PS3)
+	var rp4 = AudioStreamRandomPitch.new()
+	rp4.set_audio_stream(PS4)
+	var rp5 = AudioStreamRandomPitch.new()
+	rp5.set_audio_stream(PS5)
+	var rp6 = AudioStreamRandomPitch.new()
+	rp6.set_audio_stream(PS6)
+	var rp7 = AudioStreamRandomPitch.new()
+	rp7.set_audio_stream(PS7)
+	
+	var rp = 1
+	rp1.set_random_pitch(rp)
+	rp2.set_random_pitch(rp)
+	rp3.set_random_pitch(rp)
+	rp4.set_random_pitch(rp)
+	rp5.set_random_pitch(rp)
+	rp6.set_random_pitch(rp)
+	rp7.set_random_pitch(rp)
+	pedestrian_sounds.append(rp1)
+	pedestrian_sounds.append(rp2)
+	pedestrian_sounds.append(rp3)
+	pedestrian_sounds.append(rp4)
+	pedestrian_sounds.append(rp5)
+	pedestrian_sounds.append(rp6)
+	pedestrian_sounds.append(rp7)
 
 func _physics_process(delta):
 	if not moving:

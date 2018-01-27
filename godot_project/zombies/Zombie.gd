@@ -1,5 +1,11 @@
 extends KinematicBody2D
 
+const ZS1 = preload("res://sounds/zombie01.wav")
+const ZS2 = preload("res://sounds/zombie02.wav")
+const ZS3 = preload("res://sounds/zombie03.wav")
+const ZS4 = preload("res://sounds/zombie04.wav")
+const ZS5 = preload("res://sounds/zombie05.wav")
+
 var area
 var big_area
 var space_state
@@ -33,6 +39,8 @@ var debug_vector2 = Vector2(0,0)
 var debug_vector3 = Vector2(0,0)
 var debug_vector4 = Vector2(0,0)
 
+var zombie_sounds = []
+
 func _draw():
 	pass
 	#draw_line(Vector2(0,0), 100*dir, Color(1,0,0),1,true)
@@ -47,6 +55,28 @@ func _ready():
 	space_state = get_world_2d().get_direct_space_state()
 	$AnimatedSprite.set_frame(randi()%$AnimatedSprite.get_sprite_frames().get_frame_count("walk_right"))
 	$AnimatedSprite.play()
+	var rp1 = AudioStreamRandomPitch.new()
+	rp1.set_audio_stream(ZS1)
+	var rp2 = AudioStreamRandomPitch.new()
+	rp2.set_audio_stream(ZS2)
+	var rp3 = AudioStreamRandomPitch.new()
+	rp3.set_audio_stream(ZS3)
+	var rp4 = AudioStreamRandomPitch.new()
+	rp4.set_audio_stream(ZS4)
+	var rp5 = AudioStreamRandomPitch.new()
+	rp5.set_audio_stream(ZS5)
+	
+	var rp = 2
+	rp1.set_random_pitch(rp)
+	rp2.set_random_pitch(rp)
+	rp3.set_random_pitch(rp)
+	rp4.set_random_pitch(rp)
+	rp5.set_random_pitch(rp)
+	zombie_sounds.append(rp1)
+	zombie_sounds.append(rp2)
+	zombie_sounds.append(rp3)
+	zombie_sounds.append(rp4)
+	zombie_sounds.append(rp5)
 	
 func _process(delta):
 	update()
@@ -180,3 +210,9 @@ func _physics_process(delta):
 		debug_vector2 = dir_to_avg_pos
 		debug_vector3 = sep_avg
 		#debug_vector1 = repeller_dir
+
+func _on_SoundTimer_timeout():
+	$SoundTimer.set_wait_time(randi()%10 + 3)
+	$AudioStreamPlayer.set_stream(zombie_sounds[randi()%zombie_sounds.size()])
+	$AudioStreamPlayer.get_stream().get_audio_stream().set_loop_mode(AudioStreamSample.LOOP_DISABLED)
+	$AudioStreamPlayer.play()
