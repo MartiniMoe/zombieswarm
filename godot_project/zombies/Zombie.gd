@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 var area
+var space_state
 #var dir = Vector2(1,0)
 var angle = randf()*2
 var dir = Vector2(cos(angle),sin(angle))
@@ -10,10 +11,12 @@ var alignment_factor = 0.3
 var separation_factor = 0.1
 var cohesion_factor = 0.1
 var repeller_factor = 0.2
+var obstacle_factor = 0.2
+var old_dir_factor = 0.3
+
+var ray_length = 500
 
 var repeller_radius = 400.0
-
-var num_neighbours = 0
 
 var blind_angle = PI/4
 
@@ -23,14 +26,15 @@ var debug_vector3 = Vector2(0,0)
 var debug_vector4 = Vector2(0,0)
 
 func _draw():
-	draw_line(Vector2(0,0), 100*dir, Color(1,0,0),1,true)
-	#draw_line(Vector2(0,0), 100*debug_vector1, Color(0,1,0),1,true)
+	#draw_line(Vector2(0,0), 100*dir, Color(1,0,0),1,true)
+	draw_line(Vector2(0,0), 100*debug_vector1, Color(0,1,0),1,true)
 	#draw_line(Vector2(0,0), 100*debug_vector2, Color(0,0,1),1,true)
 	#draw_line(Vector2(0,0), 100*debug_vector3, Color(1,1,0),1,true)
 	#draw_line(Vector2(0,0), 100*debug_vector4, Color(0,1,1),1,true)
 
 func _ready():
 	area = get_node("Neighbourarea")
+	space_state = get_world_2d().get_direct_space_state()
 	$AnimatedSprite.set_frame(randi()%$AnimatedSprite.get_sprite_frames().get_frame_count("walk_right"))
 	$AnimatedSprite.play()
 	
@@ -67,6 +71,16 @@ func _physics_process(delta):
 		
 	repeller_dir = -repeller_dir.normalized()
 	
+	var obstacle_dir = Vector2(0,0)
+	
+	var result = space_state.intersect_ray(self.global_position,self.global_position+ray_length*dir,[self],2)
+	
+	if not result.empty():
+		#obstacle_dir += result.position - self.global_position
+		obstacle_dir = result.normal
+		
+	#obstacle_dir = -obstacle_dir.normalized()
+	
 	var neighbours = area.get_overlapping_bodies()
 	
 	if not neighbours.empty():
@@ -74,7 +88,7 @@ func _physics_process(delta):
 		var pos_sum = Vector2(0,0)
 		var sep_sum = Vector2(0,0)
 		
-		num_neighbours=0
+		var num_neighbours=0
 		
 		for neighbour in neighbours:
 			if neighbour.is_in_group("zombie") and neighbour!=self:
@@ -96,14 +110,15 @@ func _physics_process(delta):
 		
 		var dir_to_avg_pos = (avg_pos - self.position).normalized()
 		
-		dir = (1 - alignment_factor - cohesion_factor - separation_factor - repeller_factor) * dir
+		dir = old_dir_factor * dir
 		dir += alignment_factor * avg_dir
 		dir += cohesion_factor * dir_to_avg_pos
 		dir += separation_factor * sep_avg
 		dir += repeller_factor * repeller_dir
+		dir += obstacle_factor * obstacle_dir
 		dir = dir.normalized()
 		
-		debug_vector1 = avg_dir
+		#debug_vector1 = obstacle_dir
 		debug_vector2 = dir_to_avg_pos
 		debug_vector3 = sep_avg
-		debug_vector4 = repeller_dir
+		debug_vector1 = repeller_dir

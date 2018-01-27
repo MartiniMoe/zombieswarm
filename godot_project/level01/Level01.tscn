@@ -16,7 +16,7 @@ extents = Vector2( 960, 20 )
 custom_solver_bias = 0.0
 extents = Vector2( 20, 540 )
 
-[node name="Level01" type="YSort"]
+[node name="Level01" type="YSort" index="0"]
 
 sort_enabled = true
 
@@ -24,12 +24,13 @@ sort_enabled = true
 
 editor/display_folded = true
 input_pickable = false
-collision_layer = 1
+collision_layer = 3
 collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBoundaries" index="0"]
 
