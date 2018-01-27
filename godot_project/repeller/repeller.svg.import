@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/repeller.png-ba74d13f6b4fda35654524f1e3176da3.stex"
+path="res://.import/repeller.svg-0d38063e49ae754a19a51590240ca7e0.stex"
 
 [deps]
 
-source_file="res://repeller/repeller.png"
-source_md5="267bbc0462bf35ffc6defa483d240378"
+source_file="res://repeller/repeller.svg"
+source_md5="053731619673a8911f45cb7b2c0bdeb5"
 
-dest_files=[ "res://.import/repeller.png-ba74d13f6b4fda35654524f1e3176da3.stex" ]
-dest_md5="051efba3b8a013e094ba6e6ab3d0368c"
+dest_files=[ "res://.import/repeller.svg-0d38063e49ae754a19a51590240ca7e0.stex" ]
+dest_md5="f6e907fc8e98a5670cb992d587f7dc14"
 
 [params]
 

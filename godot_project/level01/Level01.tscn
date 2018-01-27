@@ -10,7 +10,7 @@
 [ext_resource path="res://muellpresse/Presse.tscn" type="PackedScene" id=8]
 [ext_resource path="res://switch/Switch.tscn" type="PackedScene" id=9]
 
-[node name="Level01" type="Node" index="0"]
+[node name="Level01" type="Node"]
 
 [node name="Gui" parent="." index="0" instance=ExtResource( 1 )]
 
