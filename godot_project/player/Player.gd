@@ -7,6 +7,13 @@ const spr_left = preload("res://player/player-left.png")
 const spr_right = preload("res://player/player-right.png")
 const repeller = preload("res://repeller/Repeller.tscn")
 
+var life = 100
+
+func get_damaged(var damage):
+	if life > 0:
+		life-=damage
+	print(life)
+
 func _ready():
 	set_process_input(true)
 

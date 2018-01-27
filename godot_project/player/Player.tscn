@@ -47,7 +47,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0" groups=[
+"player",
+]]
 
 scale = Vector2( 0.5, 0.5 )
 input_pickable = false
