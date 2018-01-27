@@ -7,10 +7,10 @@ path="res://.import/gebaeude.svg-8f6fbebca7e9e6448b323090180aa0b9.stex"
 [deps]
 
 source_file="res://gebaeude/gebaeude.svg"
-source_md5="beab9cab9a50ea2e48d7e44084329808"
+source_md5="49427c45c003f52227dc8f63276ae511"
 
 dest_files=[ "res://.import/gebaeude.svg-8f6fbebca7e9e6448b323090180aa0b9.stex" ]
-dest_md5="71610006a2380b8e231858ce9c7947d3"
+dest_md5="85b3cecb954d12a357d2b63bf1b23a2e"
 
 [params]
 

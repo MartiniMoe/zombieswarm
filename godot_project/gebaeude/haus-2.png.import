@@ -7,10 +7,10 @@ path="res://.import/haus-2.png-75393b290ee3a1a8f193275c384f4aa7.stex"
 [deps]
 
 source_file="res://gebaeude/haus-2.png"
-source_md5="8a99c7e698c896f2d465ca8e610cf165"
+source_md5="27532d12d3df066ac7ea26174045bdde"
 
 dest_files=[ "res://.import/haus-2.png-75393b290ee3a1a8f193275c384f4aa7.stex" ]
-dest_md5="19a71003c8da61b8c6322d6514a5f1e7"
+dest_md5="66796b7dc55a424f66d41334d88a3e58"
 
 [params]
 
