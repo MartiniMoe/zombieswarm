@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://gebaeude/haus-2.png" type="Texture" id=1]
 
@@ -7,23 +7,38 @@
 custom_solver_bias = 0.0
 extents = Vector2( 35, 40 )
 
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
+
 [node name="House02" type="StaticBody2D"]
 
+scale = Vector2( 0.5, 0.5 )
 input_pickable = false
-collision_layer = 1
+collision_layer = 3
 collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 0, 20 )
+position = Vector2( -0.153876, 68.4598 )
+scale = Vector2( 2.17922, 1.52982 )
 shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="2"]
+
+position = Vector2( 0.204609, -20.2484 )
+scale = Vector2( 8.76212, 5.59921 )
+shape = SubResource( 2 )
 
 

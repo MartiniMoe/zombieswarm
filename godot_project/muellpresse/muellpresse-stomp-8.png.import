@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/haus-2.png-75393b290ee3a1a8f193275c384f4aa7.stex"
+path="res://.import/muellpresse-stomp-8.png-25b1bb691fb0c7dbeba50f8b7263e57d.stex"
 
 [deps]
 
-source_file="res://gebaeude/haus-2.png"
-source_md5="8a99c7e698c896f2d465ca8e610cf165"
+source_file="res://muellpresse/muellpresse-stomp-8.png"
+source_md5="f086e8711143997739153d3c7572d320"
 
-dest_files=[ "res://.import/haus-2.png-75393b290ee3a1a8f193275c384f4aa7.stex" ]
-dest_md5="19a71003c8da61b8c6322d6514a5f1e7"
+dest_files=[ "res://.import/muellpresse-stomp-8.png-25b1bb691fb0c7dbeba50f8b7263e57d.stex" ]
+dest_md5="9ae2aa2d6bdde59fd10d7e18dcb2f0a2"
 
 [params]
 

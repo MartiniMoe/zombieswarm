@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/haus-2.png-75393b290ee3a1a8f193275c384f4aa7.stex"
+path="res://.import/gebaeude.svg-8f6fbebca7e9e6448b323090180aa0b9.stex"
 
 [deps]
 
-source_file="res://gebaeude/haus-2.png"
-source_md5="8a99c7e698c896f2d465ca8e610cf165"
+source_file="res://gebaeude/gebaeude.svg"
+source_md5="beab9cab9a50ea2e48d7e44084329808"
 
-dest_files=[ "res://.import/haus-2.png-75393b290ee3a1a8f193275c384f4aa7.stex" ]
-dest_md5="19a71003c8da61b8c6322d6514a5f1e7"
+dest_files=[ "res://.import/gebaeude.svg-8f6fbebca7e9e6448b323090180aa0b9.stex" ]
+dest_md5="71610006a2380b8e231858ce9c7947d3"
 
 [params]
 
