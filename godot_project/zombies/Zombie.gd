@@ -7,9 +7,9 @@ var dir = Vector2(cos(angle),sin(angle))
 var speed = 5000
 
 var alignment_factor = 0.3
-var separation_factor = 0.2
-var cohesion_factor = 0.18
-var repeller_factor = 0.5
+var separation_factor = 0.1
+var cohesion_factor = 0.1
+var repeller_factor = 0.2
 
 var repeller_radius = 400.0
 
@@ -49,8 +49,7 @@ func _physics_process(delta):
 			$AnimatedSprite.set_flip_h(true)
 	else:
 		if dir.y > 0:
-			# egtl down
-			$AnimatedSprite.play("walk_up")
+			$AnimatedSprite.play("walk_down")
 		else:
 			$AnimatedSprite.play("walk_up")
 
@@ -90,7 +89,7 @@ func _physics_process(delta):
 		var avg_dir = dir_sum.normalized()
 		var sep_avg = -sep_sum.normalized()
 		
-		var avg_pos = Vector2(0,0)
+		var avg_pos = self.position
 		
 		if(num_neighbours !=0):
 			avg_pos = pos_sum/num_neighbours
