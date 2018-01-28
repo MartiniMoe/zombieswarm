@@ -6,7 +6,7 @@ var main
 var gui
 var player
 
-var levelname = ""
+var level = 0
 
 var pedestrians_alive = 0
 var zombies_alive = 0
@@ -20,7 +20,7 @@ func _ready():
 func _process(delta):
 	time_elapsed += delta
 	
-	if levelname != "menu" && time_elapsed > 1:
+	if level != 0 && time_elapsed > 1:
 		if zombies_alive <= 0:
 			gui.get_node("Win").show()
 			level_won = true

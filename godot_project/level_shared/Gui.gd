@@ -2,7 +2,6 @@ extends Control
 
 var cooldown_timer
 var last_progress = 100
-var level = 1
 
 func _ready():
 	gamestate.gui = self
@@ -29,11 +28,10 @@ func _physics_process(delta):
 func _on_button_next_level_pressed():
 	gamestate.level_defeated = false
 	gamestate.level_won = false
-	gamestate.levelname = "level0" + str(level+1)
-	gamestate.change_scene("res://levels/Level0" + str(level+1) + ".tscn")
+	gamestate.level += 1
+	gamestate.change_scene("res://levels/Level0" + str(gamestate.level) + ".tscn")
 
 func _on_button_restart_pressed():
 	gamestate.level_defeated = false
 	gamestate.level_won = false
-	gamestate.levelname = "level0" + str(level)
-	gamestate.change_scene("res://levels/Level0" + str(level) + ".tscn")
+	gamestate.change_scene("res://levels/Level0" + str(gamestate.level) + ".tscn")

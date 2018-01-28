@@ -14,7 +14,6 @@
 
 [node name="Gui" parent="." index="0" instance=ExtResource( 1 )]
 
-visible = false
 margin_left = 2.0
 margin_right = 2.0
 
@@ -25,8 +24,6 @@ sort_enabled = true
 _sections_unfolded = [ "Sort", "Z Index" ]
 
 [node name="LevelBoundaries" parent="YSort" index="0" instance=ExtResource( 2 )]
-
-visible = false
 
 [node name="Player" parent="YSort" index="1" instance=ExtResource( 3 )]
 
