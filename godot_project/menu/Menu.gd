@@ -6,7 +6,7 @@ func _ready():
 
 func _on_StartButton_pressed():
 	gamestate.time_elapsed = 0
-	gamestate.change_scene("res://level01/Level01.tscn")
+	gamestate.change_scene("res://levels/Level01.tscn")
 	gamestate.levelname = "level01"
 
 func _on_ExitButton_pressed():

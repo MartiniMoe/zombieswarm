@@ -1,0 +1,310 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://level_shared/Gui.tscn" type="PackedScene" id=1]
+[ext_resource path="res://level_shared/LevelBoundaries.tscn" type="PackedScene" id=2]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://pedestrian/Pedestrian.tscn" type="PackedScene" id=4]
+[ext_resource path="res://zombies/Zombie.tscn" type="PackedScene" id=5]
+[ext_resource path="res://gebaeude/House01.tscn" type="PackedScene" id=6]
+[ext_resource path="res://gebaeude/House02.tscn" type="PackedScene" id=7]
+[ext_resource path="res://muellpresse/Presse.tscn" type="PackedScene" id=8]
+[ext_resource path="res://switch/Switch.tscn" type="PackedScene" id=9]
+
+[node name="Level01" type="Node"]
+
+[node name="Gui" parent="." index="0" instance=ExtResource( 1 )]
+
+margin_left = 2.0
+margin_right = 2.0
+
+[node name="YSort" type="YSort" parent="." index="1"]
+
+z_index = -1
+sort_enabled = true
+_sections_unfolded = [ "Sort", "Z Index" ]
+
+[node name="LevelBoundaries" parent="YSort" index="0" instance=ExtResource( 2 )]
+
+[node name="Player" parent="YSort" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 1237.96, 142.789 )
+
+[node name="Pedestrian" parent="YSort" index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 1518.99, 249.79 )
+
+[node name="Pedestrian3" parent="YSort" index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 1777.07, 106.782 )
+
+[node name="Pedestrian4" parent="YSort" index="4" instance=ExtResource( 4 )]
+
+position = Vector2( 456.841, 157.132 )
+
+[node name="Pedestrian7" parent="YSort" index="5" instance=ExtResource( 4 )]
+
+position = Vector2( 1189.75, 806.18 )
+
+[node name="Zombie" parent="YSort" index="6" instance=ExtResource( 5 )]
+
+position = Vector2( 229.026, 65.6588 )
+
+[node name="Zombie8" parent="YSort" index="7" instance=ExtResource( 5 )]
+
+position = Vector2( 286.442, 77.962 )
+
+[node name="Zombie2" parent="YSort" index="8" instance=ExtResource( 5 )]
+
+position = Vector2( 131.121, 79.2748 )
+
+[node name="Zombie7" parent="YSort" index="9" instance=ExtResource( 5 )]
+
+position = Vector2( 188.536, 91.5781 )
+
+[node name="Zombie3" parent="YSort" index="10" instance=ExtResource( 5 )]
+
+position = Vector2( 132.604, 157.994 )
+
+[node name="Zombie9" parent="YSort" index="11" instance=ExtResource( 5 )]
+
+position = Vector2( 190.019, 170.298 )
+
+[node name="Zombie4" parent="YSort" index="12" instance=ExtResource( 5 )]
+
+position = Vector2( 236.087, 72.5859 )
+
+[node name="Zombie10" parent="YSort" index="13" instance=ExtResource( 5 )]
+
+position = Vector2( 293.502, 84.8892 )
+
+[node name="Zombie5" parent="YSort" index="14" instance=ExtResource( 5 )]
+
+position = Vector2( 62.4753, 176.696 )
+
+[node name="Zombie11" parent="YSort" index="15" instance=ExtResource( 5 )]
+
+position = Vector2( 119.891, 188.999 )
+
+[node name="Zombie6" parent="YSort" index="16" instance=ExtResource( 5 )]
+
+position = Vector2( 206.025, 153.24 )
+
+[node name="Zombie12" parent="YSort" index="17" instance=ExtResource( 5 )]
+
+position = Vector2( 263.441, 165.544 )
+
+[node name="House01" parent="YSort" index="18" instance=ExtResource( 6 )]
+
+position = Vector2( 72.3252, 303.38 )
+
+[node name="House08" parent="YSort" index="19" instance=ExtResource( 6 )]
+
+position = Vector2( 519.702, 303.38 )
+
+[node name="House49" parent="YSort" index="20" instance=ExtResource( 6 )]
+
+position = Vector2( 421.518, 602.966 )
+
+[node name="House51" parent="YSort" index="21" instance=ExtResource( 6 )]
+
+position = Vector2( 947.682, 879.894 )
+
+[node name="House47" parent="YSort" index="22" instance=ExtResource( 6 )]
+
+position = Vector2( 262.914, 602.966 )
+
+[node name="House53" parent="YSort" index="23" instance=ExtResource( 6 )]
+
+position = Vector2( 789.078, 879.894 )
+
+[node name="House03" parent="YSort" index="24" instance=ExtResource( 6 )]
+
+position = Vector2( 246.644, 292.38 )
+
+[node name="House07" parent="YSort" index="25" instance=ExtResource( 6 )]
+
+position = Vector2( 693.071, 299.38 )
+
+[node name="House16" parent="YSort" index="26" instance=ExtResource( 6 )]
+
+position = Vector2( 888.071, 303.38 )
+
+[node name="House11" parent="YSort" index="27" instance=ExtResource( 6 )]
+
+position = Vector2( 790.71, 292.38 )
+
+[node name="House50" parent="YSort" index="28" instance=ExtResource( 6 )]
+
+position = Vector2( 498.676, 599.518 )
+
+[node name="House52" parent="YSort" index="29" instance=ExtResource( 6 )]
+
+position = Vector2( 1024.84, 876.446 )
+
+[node name="House15" parent="YSort" index="30" instance=ExtResource( 6 )]
+
+position = Vector2( 985.71, 299.38 )
+
+[node name="House05" parent="YSort" index="31" instance=ExtResource( 6 )]
+
+position = Vector2( 344.283, 303.38 )
+
+[node name="House46" parent="YSort" index="32" instance=ExtResource( 6 )]
+
+position = Vector2( 175.608, 605.483 )
+
+[node name="House54" parent="YSort" index="33" instance=ExtResource( 6 )]
+
+position = Vector2( 701.772, 882.411 )
+
+[node name="House06" parent="YSort" index="34" instance=ExtResource( 6 )]
+
+position = Vector2( 1769.63, 289.127 )
+
+[node name="House21" parent="YSort" index="35" instance=ExtResource( 6 )]
+
+position = Vector2( 1669.15, 328.087 )
+
+[node name="House36" parent="YSort" index="36" instance=ExtResource( 6 )]
+
+position = Vector2( 1044.8, 839.145 )
+
+[node name="House44" parent="YSort" index="37" instance=ExtResource( 6 )]
+
+position = Vector2( 35.2743, 597.462 )
+
+[node name="House55" parent="YSort" index="38" instance=ExtResource( 6 )]
+
+position = Vector2( 561.438, 874.39 )
+
+[node name="House34" parent="YSort" index="39" instance=ExtResource( 6 )]
+
+position = Vector2( 1034.73, 582.357 )
+
+[node name="House38" parent="YSort" index="40" instance=ExtResource( 6 )]
+
+position = Vector2( 1062.43, 521.936 )
+
+[node name="House40" parent="YSort" index="41" instance=ExtResource( 6 )]
+
+position = Vector2( 1205.92, 934.811 )
+
+[node name="House32" parent="YSort" index="42" instance=ExtResource( 6 )]
+
+position = Vector2( 1047.32, 743.479 )
+
+[node name="House12" parent="YSort" index="43" instance=ExtResource( 6 )]
+
+position = Vector2( 1589.17, 426.109 )
+
+[node name="House25" parent="YSort" index="44" instance=ExtResource( 6 )]
+
+position = Vector2( 1063.01, 363.171 )
+
+[node name="House24" parent="YSort" index="45" instance=ExtResource( 6 )]
+
+position = Vector2( 1120.91, 421.074 )
+
+[node name="House13" parent="YSort" index="46" instance=ExtResource( 6 )]
+
+position = Vector2( 1589.17, 529.041 )
+
+[node name="House17" parent="YSort" index="47" instance=ExtResource( 6 )]
+
+position = Vector2( 1488.69, 693.085 )
+
+[node name="House18" parent="YSort" index="48" instance=ExtResource( 6 )]
+
+position = Vector2( 1511.25, 592.608 )
+
+[node name="House42" parent="YSort" index="49" instance=ExtResource( 6 )]
+
+position = Vector2( 1284.67, 1023.11 )
+
+[node name="House02" parent="YSort" index="50" instance=ExtResource( 7 )]
+
+position = Vector2( 160.56, 299.38 )
+
+[node name="House22" parent="YSort" index="51" instance=ExtResource( 7 )]
+
+position = Vector2( 20.56, 299.38 )
+
+[node name="House09" parent="YSort" index="52" instance=ExtResource( 7 )]
+
+position = Vector2( 607.937, 292.38 )
+
+[node name="House04" parent="YSort" index="53" instance=ExtResource( 7 )]
+
+position = Vector2( 431.518, 299.38 )
+
+[node name="House48" parent="YSort" index="54" instance=ExtResource( 7 )]
+
+position = Vector2( 345.922, 596.448 )
+
+[node name="House56" parent="YSort" index="55" instance=ExtResource( 7 )]
+
+position = Vector2( 872.086, 873.376 )
+
+[node name="House45" parent="YSort" index="56" instance=ExtResource( 7 )]
+
+position = Vector2( 109.274, 586.378 )
+
+[node name="House57" parent="YSort" index="57" instance=ExtResource( 7 )]
+
+position = Vector2( 635.438, 863.306 )
+
+[node name="House10" parent="YSort" index="58" instance=ExtResource( 7 )]
+
+position = Vector2( 1859.84, 287.076 )
+
+[node name="House20" parent="YSort" index="59" instance=ExtResource( 7 )]
+
+position = Vector2( 1089.48, 468.338 )
+
+[node name="House33" parent="YSort" index="60" instance=ExtResource( 7 )]
+
+position = Vector2( 1051.71, 631.977 )
+
+[node name="House43" parent="YSort" index="61" instance=ExtResource( 7 )]
+
+position = Vector2( 1011.43, 672.258 )
+
+[node name="House35" parent="YSort" index="62" instance=ExtResource( 7 )]
+
+position = Vector2( 998.845, 788.064 )
+
+[node name="House39" parent="YSort" index="63" instance=ExtResource( 7 )]
+
+position = Vector2( 1144.86, 911.423 )
+
+[node name="House37" parent="YSort" index="64" instance=ExtResource( 7 )]
+
+position = Vector2( 1104.58, 881.213 )
+
+[node name="House41" parent="YSort" index="65" instance=ExtResource( 7 )]
+
+position = Vector2( 1258.15, 966.809 )
+
+[node name="House14" parent="YSort" index="66" instance=ExtResource( 7 )]
+
+position = Vector2( 1572.77, 937.15 )
+
+[node name="House23" parent="YSort" index="67" instance=ExtResource( 7 )]
+
+position = Vector2( 1511.25, 996.565 )
+
+[node name="House19" parent="YSort" index="68" instance=ExtResource( 7 )]
+
+position = Vector2( 1562.52, 727.944 )
+
+[node name="Presse" parent="YSort" index="69" instance=ExtResource( 8 )]
+
+position = Vector2( 1662.99, 848.926 )
+
+[node name="Switch" parent="YSort" index="70" instance=ExtResource( 9 )]
+
+position = Vector2( 1396.42, 1006.82 )
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Transform" ]
+
+
