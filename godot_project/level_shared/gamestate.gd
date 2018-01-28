@@ -21,12 +21,16 @@ func _process(delta):
 	time_elapsed += delta
 	
 	if levelname != "menu" && time_elapsed > 1:
-		if zombies_alive == 0:
+		if zombies_alive <= 0:
 			gui.get_node("Win").show()
 			level_won = true
 			level_defeated = false
-		elif pedestrians_alive == 0:
+		elif pedestrians_alive <= 0:
 			gui.get_node("Defeat").show()
+			level_defeated = true
+			level_won = false
+		elif player.life <= 0:
+			gui.get_node("DefeatDeath").show()
 			level_defeated = true
 			level_won = false
 

@@ -10,9 +10,12 @@ const repeller = preload("res://repeller/Repeller.tscn")
 var life = 100
 
 func get_damaged(var damage):
+	$Particles2D.set_emitting(true)
 	if life > 0:
 		life-=damage
-	print(life)
+	else:
+		$AnimatedSprite.stop()
+		$AnimatedSprite.set_rotation_degrees(90)
 
 func _ready():
 	gamestate.player = self

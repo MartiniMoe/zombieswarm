@@ -7,12 +7,14 @@ var level = 1
 func _ready():
 	gamestate.gui = self
 	set_physics_process(true)
+	$PlayerHealth.set_position(Vector2(280, 20))
 	$PedestrianCount.set_position(Vector2(10, 20))
 	$ZombieCount.set_position(Vector2(10, 80))
 
 func _physics_process(delta):
 	$PedestrianCount/Background/Number.set_text(str(gamestate.pedestrians_alive))
 	$ZombieCount/Background/Number.set_text(str(gamestate.zombies_alive))
+	$PlayerHealth/Background/TextureProgress.set_value(gamestate.player.life)
 	
 	if gamestate.player.get_node("RepellerCooldown") != null:
 		cooldown_timer = gamestate.player.get_node("RepellerCooldown")
