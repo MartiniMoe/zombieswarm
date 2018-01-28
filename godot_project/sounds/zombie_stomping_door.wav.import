@@ -7,10 +7,10 @@ path="res://.import/zombie_stomping_door.wav-712c792d0f7ee51df357418f5f5f060a.sa
 [deps]
 
 source_file="res://sounds/zombie_stomping_door.wav"
-source_md5="4f5e768e5ea5655b48413d2fd3991549"
+source_md5="758e4c0429b08aa47f49a3edacdbb8c8"
 
 dest_files=[ "res://.import/zombie_stomping_door.wav-712c792d0f7ee51df357418f5f5f060a.sample" ]
-dest_md5="67c99cefead2a566f3928d2cf25243b6"
+dest_md5="559fe6b6a066cf56726627f831661097"
 
 [params]
 
