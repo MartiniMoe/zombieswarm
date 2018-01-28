@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/repeller.wav-a99af8d7ca9ec018ada2ae2f80107b05.sample"
+
+[deps]
+
+source_file="res://repeller/repeller.wav"
+source_md5="5c80cf383f648919aa1b691cfe1108e3"
+
+dest_files=[ "res://.import/repeller.wav-a99af8d7ca9ec018ada2ae2f80107b05.sample" ]
+dest_md5="48ecc4b84f7efb141cd6551e3624a5d2"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=0

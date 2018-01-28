@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://repeller/Repeller.gd" type="Script" id=1]
 [ext_resource path="res://repeller/repeller.png" type="Texture" id=2]
+[ext_resource path="res://repeller/repeller.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -69,7 +70,16 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/despawn = SubResource( 2 )
 blend_times = [  ]
-autoplay = ""
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="4"]
+
+stream = ExtResource( 3 )
+volume_db = -13.0
+autoplay = true
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_DespawnTimer_timeout"]
 
