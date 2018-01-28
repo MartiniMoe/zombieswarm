@@ -15,6 +15,7 @@ var level_defeated = false
 var level_won = false
 
 var mute_sounds = false
+var sound_volume = 0
 
 func _ready():
 	set_process(true)
@@ -69,3 +70,9 @@ func change_scene(scene):
 
 func mute_music(mute):
 	main.get_node("AudioStreamPlayer")._set_playing(!mute)
+
+func set_music_volume(vol):
+	main.get_node("AudioStreamPlayer").set_volume_db(vol)
+
+func set_sound_volume(vol):
+	sound_volume = vol

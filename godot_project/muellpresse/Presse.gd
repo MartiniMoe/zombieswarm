@@ -13,6 +13,7 @@ func _physics_process(delta):
 			zombies.append(body)
 
 func stomp():
+	$AudioDoor.set_volume_db(gamestate.sound_volume)
 	if !gamestate.mute_sounds:
 		$AudioDoor.play()
 	$AnimatedSprite.play("close")
@@ -23,6 +24,8 @@ func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.get_animation() == "close":
 		$AnimatedSprite.play("stomp")
 		if zombies.size() > 0:
+			$AudioStomping.set_volume_db(gamestate.sound_volume)
+			$AudioMatsche.set_volume_db(gamestate.sound_volume)
 			if !gamestate.mute_sounds:
 				$AudioStomping.play()
 				$AudioMatsche.play()

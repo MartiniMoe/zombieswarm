@@ -9,6 +9,7 @@ func _ready():
 	$PlayerHealth.set_position(Vector2(280, 20))
 	$PedestrianCount.set_position(Vector2(10, 20))
 	$ZombieCount.set_position(Vector2(10, 80))
+	$PauseMenu/MusicSlider.set_value(gamestate.main.get_node("AudioStreamPlayer").get_volume_db())
 
 func _physics_process(delta):
 	$PedestrianCount/Background/Number.set_text(str(gamestate.pedestrians_alive))
@@ -59,3 +60,9 @@ func _on_MusicToggle_toggled( button_pressed ):
 
 func _on_SoundToggle_toggled( button_pressed ):
 	gamestate.mute_sounds = button_pressed
+
+func _on_MusicSlider_value_changed( value ):
+	gamestate.set_music_volume(value)
+
+func _on_SoundSlider_value_changed( value ):
+	gamestate.set_sound_volume(value)
