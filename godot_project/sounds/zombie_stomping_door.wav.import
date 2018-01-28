@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/zombie_stomping_door.wav-712c792d0f7ee51df357418f5f5f060a.sample"
+
+[deps]
+
+source_file="res://sounds/zombie_stomping_door.wav"
+source_md5="4f5e768e5ea5655b48413d2fd3991549"
+
+dest_files=[ "res://.import/zombie_stomping_door.wav-712c792d0f7ee51df357418f5f5f060a.sample" ]
+dest_md5="67c99cefead2a566f3928d2cf25243b6"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

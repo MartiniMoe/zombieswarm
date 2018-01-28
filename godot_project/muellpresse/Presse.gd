@@ -13,6 +13,7 @@ func _physics_process(delta):
 			zombies.append(body)
 
 func stomp():
+	$AudioDoor.play()
 	$AnimatedSprite.play("close")
 	$CollisionDoor.set_disabled(false)
 	get_parent().get_node("Switch/Sprite").set_flip_h(true)
@@ -21,12 +22,16 @@ func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.get_animation() == "close":
 		$AnimatedSprite.play("stomp")
 		if zombies.size() > 0:
+			$AudioStomping.play()
+			$AudioMatsche.play()
 			$Particles2D.set_emitting(true)
 		for zombie in zombies:
 			zombie.queue_free()
 		zombies = []
 	elif $AnimatedSprite.get_animation() == "stomp":
 		$AnimatedSprite.play("open")
+		$AudioStomping.stop()
+		$AudioMatsche.stop()
 	elif $AnimatedSprite.get_animation() == "open":
 		$CollisionDoor.set_disabled(true)
 		get_parent().get_node("Switch/Sprite").set_flip_h(false)

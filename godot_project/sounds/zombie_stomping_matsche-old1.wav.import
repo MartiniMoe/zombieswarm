@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/zombie_stomping_matsche-old1.wav-01dad80cc8a9f77a1e9c12370f137ac8.sample"
+
+[deps]
+
+source_file="res://sounds/zombie_stomping_matsche-old1.wav"
+source_md5="73a54b2b96d86b1c4552e4fe8ee93121"
+
+dest_files=[ "res://.import/zombie_stomping_matsche-old1.wav-01dad80cc8a9f77a1e9c12370f137ac8.sample" ]
+dest_md5="3518cff8f434fd0d20ec92fbcd97518a"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
