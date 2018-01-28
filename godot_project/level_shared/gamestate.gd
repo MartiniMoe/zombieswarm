@@ -22,9 +22,19 @@ func _process(delta):
 	
 	if level != 0 && time_elapsed > 1:
 		if zombies_alive <= 0:
-			gui.get_node("Win").show()
-			level_won = true
-			level_defeated = false
+			# check if there is a next level
+			var levelcheck = File.new()
+			var levelexists = levelcheck.file_exists("res://levels/Level0" + str(level+1) + ".tscn")
+			
+			if levelexists:
+				gui.get_node("Win").show()
+				level_won = true
+				level_defeated = false
+			else:
+				level = 0
+				gui.get_node("WinOverall").show()
+				level_won = true
+				level_defeated = false
 		elif pedestrians_alive <= 0:
 			gui.get_node("Defeat").show()
 			level_defeated = true

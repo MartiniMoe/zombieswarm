@@ -35,3 +35,8 @@ func _on_button_restart_pressed():
 	gamestate.level_defeated = false
 	gamestate.level_won = false
 	gamestate.change_scene("res://levels/Level0" + str(gamestate.level) + ".tscn")
+
+func _on_button_back_pressed():
+	gamestate.level_defeated = false
+	gamestate.level_won = false
+	gamestate.change_scene("res://menu/Menu.tscn")
