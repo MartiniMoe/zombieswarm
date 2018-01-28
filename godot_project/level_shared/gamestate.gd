@@ -2,6 +2,7 @@ extends Node
 
 var time_elapsed = 0
 
+var main
 var gui
 var player
 
@@ -28,3 +29,8 @@ func _process(delta):
 			gui.get_node("Defeat").show()
 			level_defeated = true
 			level_won = false
+
+func change_scene(scene):
+	for child in main.get_node("Scene").get_children():
+		child.queue_free()
+	main.get_node("Scene").add_child(load(scene).instance())

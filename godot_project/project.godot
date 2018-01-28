@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="schwarmspiel"
-run/main_scene="res://menu/Menu.tscn"
+run/main_scene="res://level_shared/Main.tscn"
 config/icon="res://repeller/flash.png"
 
 [autoload]

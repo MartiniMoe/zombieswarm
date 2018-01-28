@@ -46,12 +46,12 @@ var debug_vector4 = Vector2(0,0)
 var zombie_sounds = []
 
 func _draw():
-	pass
 	#draw_line(Vector2(0,0), 100*dir, Color(1,0,0),1,true)
 	#draw_line(Vector2(0,0), 100*debug_vector1, Color(0,1,0),1,true)
 	#draw_line(Vector2(0,0), 100*debug_vector2, Color(0,0,1),1,true)
 	#draw_line(Vector2(0,0), 100*debug_vector3, Color(1,1,0),1,true)
 	#draw_line(Vector2(0,0), 100*debug_vector4, Color(0,1,1),1,true)
+	pass
 
 func _exit_tree():
 	gamestate.zombies_alive -= 1

@@ -5,7 +5,8 @@ func _ready():
 	gamestate.levelname = "menu"
 
 func _on_StartButton_pressed():
-	get_tree().change_scene("res://level01/Level01.tscn")
+	gamestate.time_elapsed = 0
+	gamestate.change_scene("res://level01/Level01.tscn")
 	gamestate.levelname = "level01"
 
 func _on_ExitButton_pressed():
