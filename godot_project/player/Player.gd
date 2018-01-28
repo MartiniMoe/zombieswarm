@@ -25,7 +25,8 @@ func _physics_process(delta):
 	if !gamestate.level_defeated:
 		var motion = Vector2()
 		
-		if Input.is_action_just_pressed("pause"):
+		if Input.is_action_just_released("pause"):
+			print("pausing")
 			gamestate.pause_game()
 		
 		if Input.is_action_just_pressed("place_repeller"):

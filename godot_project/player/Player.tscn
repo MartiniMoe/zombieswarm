@@ -48,18 +48,18 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Gradient" id=5]
+[sub_resource type="Gradient" id=3]
 
 offsets = PoolRealArray( 0, 0.0946746, 0.118343, 0.710059, 1 )
 colors = PoolColorArray( 0.730469, 0, 0, 0, 0.738281, 0, 0, 1, 0.546875, 0, 0, 1, 0.355469, 0, 0, 1, 0.46875, 0, 0, 0 )
 
-[sub_resource type="GradientTexture" id=3]
+[sub_resource type="GradientTexture" id=4]
 
 flags = 4
-gradient = SubResource( 5 )
+gradient = SubResource( 3 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=4]
+[sub_resource type="ParticlesMaterial" id=5]
 
 render_priority = 0
 trail_divisor = 1
@@ -88,7 +88,7 @@ angle = 360.0
 angle_random = 1.0
 scale = 0.15
 scale_random = 0.5
-color_ramp = SubResource( 3 )
+color_ramp = SubResource( 4 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -108,7 +108,7 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform", "Z Index" ]
+_sections_unfolded = [ "Pause", "Transform", "Z Index" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
@@ -144,7 +144,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 4 )
+process_material = SubResource( 5 )
 texture = ExtResource( 22 )
 normal_map = null
 h_frames = 1

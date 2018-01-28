@@ -25,7 +25,7 @@ func _on_AnimatedSprite_animation_finished():
 		$AnimatedSprite.play("stomp")
 		if zombies.size() > 0:
 			$AudioStomping.set_volume_db(gamestate.sound_volume)
-			$AudioMatsche.set_volume_db(gamestate.sound_volume)
+			$AudioMatsche.set_volume_db(gamestate.sound_volume+24)
 			if !gamestate.mute_sounds:
 				$AudioStomping.play()
 				$AudioMatsche.play()
