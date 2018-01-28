@@ -232,4 +232,5 @@ func _on_SoundTimer_timeout():
 	$SoundTimer.set_wait_time(randi()%10 + 3)
 	$AudioStreamPlayer.set_stream(zombie_sounds[randi()%zombie_sounds.size()])
 	$AudioStreamPlayer.get_stream().get_audio_stream().set_loop_mode(AudioStreamSample.LOOP_DISABLED)
-	$AudioStreamPlayer.play()
+	if !gamestate.mute_sounds:
+		$AudioStreamPlayer.play()

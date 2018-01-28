@@ -25,6 +25,9 @@ func _physics_process(delta):
 	if !gamestate.level_defeated:
 		var motion = Vector2()
 		
+		if Input.is_action_just_pressed("pause"):
+			gamestate.pause_game()
+		
 		if Input.is_action_just_pressed("place_repeller"):
 			if self in get_parent().get_node("Switch").get_overlapping_bodies():
 				# activate press

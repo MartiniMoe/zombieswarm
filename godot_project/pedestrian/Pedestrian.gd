@@ -31,7 +31,8 @@ func get_damaged(var damage):
 	if !$AudioStreamPlayer2D.is_playing():
 		$AudioStreamPlayer2D.set_stream(pedestrian_sounds[randi()%pedestrian_sounds.size()])
 		$AudioStreamPlayer2D.get_stream().get_audio_stream().set_loop_mode(AudioStreamSample.LOOP_DISABLED)
-		$AudioStreamPlayer2D.play()
+		if !gamestate.mute_sounds:
+			$AudioStreamPlayer2D.play()
 	
 	if life > 0:
 		life-=damage

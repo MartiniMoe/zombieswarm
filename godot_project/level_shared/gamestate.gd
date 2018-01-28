@@ -14,6 +14,8 @@ var zombies_alive = 0
 var level_defeated = false
 var level_won = false
 
+var mute_sounds = false
+
 func _ready():
 	set_process(true)
 
@@ -50,9 +52,20 @@ func _process(delta):
 			level_defeated = true
 			level_won = false
 
+func pause_game():
+	get_tree().set_pause(true)
+	gui.get_node("PauseMenu").show()
+
+func resume_game():
+	get_tree().set_pause(false)
+	gui.get_node("PauseMenu").hide()
+
 func change_scene(scene):
 	pedestrians_alive = 0
-	zombies_alive = 0
+	#zombies_alive = 0
 	for child in main.get_node("Scene").get_children():
 		child.queue_free()
 	main.get_node("Scene").add_child(load(scene).instance())
+
+func mute_music(mute):
+	main.get_node("AudioStreamPlayer")._set_playing(!mute)

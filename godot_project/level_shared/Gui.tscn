@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://level_shared/Gui.gd" type="Script" id=1]
 [ext_resource path="res://level_shared/label_bg.png" type="Texture" id=2]
@@ -20,10 +20,17 @@
 [ext_resource path="res://level_shared/konfetti01.png" type="Texture" id=18]
 [ext_resource path="res://level_shared/konfetti02.png" type="Texture" id=19]
 [ext_resource path="res://level_shared/konfetti03.png" type="Texture" id=20]
-[ext_resource path="res://level_shared/defeat.png" type="Texture" id=21]
+[ext_resource path="res://level_shared/pause.png" type="Texture" id=21]
 [ext_resource path="res://level_shared/restart.png" type="Texture" id=22]
 [ext_resource path="res://level_shared/restart_hover.png" type="Texture" id=23]
-[ext_resource path="res://level_shared/defeat_death.png" type="Texture" id=24]
+[ext_resource path="res://level_shared/resume.png" type="Texture" id=24]
+[ext_resource path="res://level_shared/resume_hover.png" type="Texture" id=25]
+[ext_resource path="res://level_shared/music.png" type="Texture" id=26]
+[ext_resource path="res://level_shared/music_mute.png" type="Texture" id=27]
+[ext_resource path="res://level_shared/sound.png" type="Texture" id=28]
+[ext_resource path="res://level_shared/sound_mute.png" type="Texture" id=29]
+[ext_resource path="res://level_shared/defeat.png" type="Texture" id=30]
+[ext_resource path="res://level_shared/defeat_death.png" type="Texture" id=31]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -107,7 +114,7 @@ tracks/2/keys = {
 "values": [ Vector2( 1312, 96 ), Vector2( 1312, 96 ), Vector2( 1312, 96 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 
 resource_name = "win"
 length = 4.0
@@ -150,7 +157,7 @@ tracks/2/keys = {
 "values": [ Vector2( 1312, 96 ), Vector2( 1312, 96 ), Vector2( 1312, 96 ) ]
 }
 
-[sub_resource type="ParticlesMaterial" id=7]
+[sub_resource type="ParticlesMaterial" id=5]
 
 render_priority = 0
 trail_divisor = 1
@@ -189,9 +196,8 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angle", "Angular Velocity", "Color", "Emission Shape", "Flags", "Hue Variation", "Initial Velocity", "Radial Accel", "Spread", "Tangential Accel" ]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 
-resource_name = "defeat"
 length = 2.0
 loop = false
 step = 0.1
@@ -232,9 +238,8 @@ tracks/2/keys = {
 "values": [ Vector2( 1312, 96 ), Vector2( 1312, 96 ), Vector2( 1312, 96 ), Vector2( 1312, 96 ), Vector2( 1312, 96 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 
-resource_name = "defeat"
 length = 2.0
 loop = false
 step = 0.1
@@ -669,6 +674,7 @@ _sections_unfolded = [ "Textures" ]
 
 [node name="WinOverall" type="Control" parent="." index="5"]
 
+editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -725,7 +731,7 @@ autoplay = "win"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/win = SubResource( 6 )
+anims/win = SubResource( 4 )
 blend_times = [  ]
 autoplay = "win"
 
@@ -770,7 +776,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 7 )
+process_material = SubResource( 5 )
 texture = ExtResource( 18 )
 normal_map = null
 h_frames = 1
@@ -794,7 +800,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 7 )
+process_material = SubResource( 5 )
 texture = ExtResource( 18 )
 normal_map = null
 h_frames = 1
@@ -818,7 +824,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 7 )
+process_material = SubResource( 5 )
 texture = ExtResource( 19 )
 normal_map = null
 h_frames = 1
@@ -842,7 +848,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 7 )
+process_material = SubResource( 5 )
 texture = ExtResource( 19 )
 normal_map = null
 h_frames = 1
@@ -866,7 +872,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 7 )
+process_material = SubResource( 5 )
 texture = ExtResource( 20 )
 normal_map = null
 h_frames = 1
@@ -890,14 +896,187 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 7 )
+process_material = SubResource( 5 )
 texture = ExtResource( 20 )
 normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time", "Visibility" ]
 
-[node name="Defeat" type="Control" parent="." index="6"]
+[node name="PauseMenu" type="Control" parent="." index="6"]
+
+pause_mode = 2
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Pause" ]
+
+[node name="TextureRect" type="TextureRect" parent="PauseMenu" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 11 )
+stretch_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="PauseMenu" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 349.0
+margin_top = 257.0
+margin_right = 1661.0
+margin_bottom = 353.0
+rect_rotation = 0.0720709
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 21 )
+stretch_mode = 0
+_sections_unfolded = [ "Anchor" ]
+
+[node name="button_restart" type="TextureButton" parent="PauseMenu" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 586.0
+margin_top = 570.0
+margin_right = 1013.0
+margin_bottom = 640.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 22 )
+texture_hover = ExtResource( 23 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="button_menu" type="TextureButton" parent="PauseMenu" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 577.0
+margin_top = 657.0
+margin_right = 1004.0
+margin_bottom = 727.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 16 )
+texture_hover = ExtResource( 17 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="button_resume" type="TextureButton" parent="PauseMenu" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 574.0
+margin_top = 740.0
+margin_right = 1001.0
+margin_bottom = 810.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 24 )
+texture_hover = ExtResource( 25 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="MusicToggle" type="TextureButton" parent="PauseMenu" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1250.0
+margin_top = 565.0
+margin_right = 1314.0
+margin_bottom = 629.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 26 )
+texture_pressed = ExtResource( 27 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="SoundToggle" type="TextureButton" parent="PauseMenu" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1250.0
+margin_top = 656.0
+margin_right = 1314.0
+margin_bottom = 720.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 28 )
+texture_pressed = ExtResource( 29 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="Defeat" type="Control" parent="." index="7"]
 
 editor/display_folded = true
 visible = false
@@ -945,7 +1124,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 21 )
+texture = ExtResource( 30 )
 stretch_mode = 0
 _sections_unfolded = [ "Anchor" ]
 
@@ -956,7 +1135,7 @@ autoplay = "win"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/defeat = SubResource( 4 )
+anims/defeat = SubResource( 6 )
 blend_times = [  ]
 autoplay = "win"
 
@@ -984,7 +1163,7 @@ texture_normal = ExtResource( 22 )
 texture_hover = ExtResource( 23 )
 _sections_unfolded = [ "Textures" ]
 
-[node name="DefeatDeath" type="Control" parent="." index="7"]
+[node name="DefeatDeath" type="Control" parent="." index="8"]
 
 editor/display_folded = true
 visible = false
@@ -1032,7 +1211,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 24 )
+texture = ExtResource( 31 )
 stretch_mode = 0
 _sections_unfolded = [ "Anchor" ]
 
@@ -1043,7 +1222,7 @@ autoplay = "win"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/defeat = SubResource( 5 )
+anims/defeat = SubResource( 7 )
 blend_times = [  ]
 autoplay = "win"
 
@@ -1074,6 +1253,16 @@ _sections_unfolded = [ "Textures" ]
 [connection signal="pressed" from="Win/button_next_level" to="." method="_on_button_next_level_pressed"]
 
 [connection signal="pressed" from="WinOverall/button_back" to="." method="_on_button_back_pressed"]
+
+[connection signal="pressed" from="PauseMenu/button_restart" to="." method="_on_button_restart_pressed"]
+
+[connection signal="pressed" from="PauseMenu/button_menu" to="." method="_on_button_menu_pressed"]
+
+[connection signal="pressed" from="PauseMenu/button_resume" to="." method="_on_button_resume_pressed"]
+
+[connection signal="toggled" from="PauseMenu/MusicToggle" to="." method="_on_MusicToggle_toggled"]
+
+[connection signal="toggled" from="PauseMenu/SoundToggle" to="." method="_on_SoundToggle_toggled"]
 
 [connection signal="pressed" from="Defeat/button_restart" to="." method="_on_button_restart_pressed"]
 
