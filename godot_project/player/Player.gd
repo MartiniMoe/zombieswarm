@@ -15,43 +15,45 @@ func get_damaged(var damage):
 	print(life)
 
 func _ready():
+	gamestate.player = self
 	set_process_input(true)
 
 func _physics_process(delta):
-	var motion = Vector2()
-	
-	if Input.is_action_just_pressed("place_repeller"):
-		if self in get_parent().get_node("Switch").get_overlapping_bodies():
-			# activate press
-			get_parent().get_node("Presse").stomp()
-		elif $RepellerCooldown.time_left == 0:
-			var rep = repeller.instance()
-			rep.set_global_position(get_global_position())
-			get_parent().add_child(rep)
-			$RepellerCooldown.start()
-	
-	var animation = "walk_right"
-	if Input.is_action_pressed("walk_up"):
-		animation = "walk_up"
-		motion += Vector2(0, -1)
-	if Input.is_action_pressed("walk_down"):
-		animation = "walk_down"
-		motion += Vector2(0, 1)
-	if Input.is_action_pressed("walk_left"):
-		animation = "walk_right"
-		$AnimatedSprite.set_flip_h(true)
-		motion += Vector2(-1, 0)
-	if Input.is_action_pressed("walk_right"):
-		animation = "walk_right"
-		$AnimatedSprite.set_flip_h(false)
-		motion += Vector2(1, 0)
-	
-	$AnimatedSprite.set_animation(animation)
-	motion = motion.normalized() * MOTION_SPEED
-	
-	if motion != Vector2(0, 0):
-		$AnimatedSprite.play()
-	else:
-		$AnimatedSprite.stop()
-	
-	move_and_slide(motion)
+	if !gamestate.level_defeated:
+		var motion = Vector2()
+		
+		if Input.is_action_just_pressed("place_repeller"):
+			if self in get_parent().get_node("Switch").get_overlapping_bodies():
+				# activate press
+				get_parent().get_node("Presse").stomp()
+			elif $RepellerCooldown.time_left == 0:
+				var rep = repeller.instance()
+				rep.set_global_position(get_global_position())
+				get_parent().add_child(rep)
+				$RepellerCooldown.start()
+		
+		var animation = "walk_right"
+		if Input.is_action_pressed("walk_up"):
+			animation = "walk_up"
+			motion += Vector2(0, -1)
+		if Input.is_action_pressed("walk_down"):
+			animation = "walk_down"
+			motion += Vector2(0, 1)
+		if Input.is_action_pressed("walk_left"):
+			animation = "walk_right"
+			$AnimatedSprite.set_flip_h(true)
+			motion += Vector2(-1, 0)
+		if Input.is_action_pressed("walk_right"):
+			animation = "walk_right"
+			$AnimatedSprite.set_flip_h(false)
+			motion += Vector2(1, 0)
+		
+		$AnimatedSprite.set_animation(animation)
+		motion = motion.normalized() * MOTION_SPEED
+		
+		if motion != Vector2(0, 0):
+			$AnimatedSprite.play()
+		else:
+			$AnimatedSprite.stop()
+		
+		move_and_slide(motion)

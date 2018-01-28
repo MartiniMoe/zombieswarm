@@ -157,6 +157,7 @@ _sections_unfolded = [ "custom_constants" ]
 
 [node name="PedestrianCount" type="MarginContainer" parent="." index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -230,6 +231,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="ZombieCount" type="MarginContainer" parent="." index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -303,6 +305,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="RepellerTimer" type="NinePatchRect" parent="." index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -365,6 +368,7 @@ autoplay = ""
 
 [node name="Win" type="Control" parent="." index="3"]
 
+editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -451,6 +455,7 @@ _sections_unfolded = [ "Textures" ]
 
 [node name="Defeat" type="Control" parent="." index="4"]
 
+editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0

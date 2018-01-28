@@ -53,7 +53,12 @@ func _draw():
 	#draw_line(Vector2(0,0), 100*debug_vector3, Color(1,1,0),1,true)
 	#draw_line(Vector2(0,0), 100*debug_vector4, Color(0,1,1),1,true)
 
+func _exit_tree():
+	gamestate.zombies_alive -= 1
+
 func _ready():
+	gamestate.zombies_alive += 1
+	
 	area = get_node("Neighbourarea")
 	big_area = get_node("Biggerarea")
 	space_state = get_world_2d().get_direct_space_state()

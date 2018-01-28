@@ -36,6 +36,7 @@ func get_damaged(var damage):
 	if life > 0:
 		life-=damage
 	else:
+		gamestate.pedestrians_alive -= 1
 		set_physics_process(false)
 		$AnimatedSprite.stop()
 		$AnimatedSprite.hide()
@@ -45,6 +46,8 @@ func get_damaged(var damage):
 		$CollisionShape2D.set_disabled(true)
 
 func _ready():
+	gamestate.pedestrians_alive += 1
+	
 	set_physics_process(true)
 	
 	var rp1 = AudioStreamRandomPitch.new()
