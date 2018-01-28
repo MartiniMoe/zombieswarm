@@ -35,6 +35,12 @@ func _process(delta):
 				gui.get_node("WinOverall").show()
 				level_won = true
 				level_defeated = false
+				gui.get_node("WinOverall/P1").set_emitting(true)
+				gui.get_node("WinOverall/P2").set_emitting(true)
+				gui.get_node("WinOverall/P3").set_emitting(true)
+				gui.get_node("WinOverall/P4").set_emitting(true)
+				gui.get_node("WinOverall/P5").set_emitting(true)
+				gui.get_node("WinOverall/P6").set_emitting(true)
 		elif pedestrians_alive <= 0:
 			gui.get_node("Defeat").show()
 			level_defeated = true
@@ -45,6 +51,8 @@ func _process(delta):
 			level_won = false
 
 func change_scene(scene):
+	pedestrians_alive = 0
+	zombies_alive = 0
 	for child in main.get_node("Scene").get_children():
 		child.queue_free()
 	main.get_node("Scene").add_child(load(scene).instance())
